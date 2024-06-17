@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xnTUczd7rjOQUZPL0Vq7rAFk6QTOZ7qDJ6APzyMMmhAeZjC6UiYOvX6KKdlb4sL9Vp+s83hLpBEHjkxjBioKvg==",
+  "dgSpecHash": "0RNThaGtFlyo0UN8XgiF96FcbbRF5b1nlF+CYBsPZ90kb4EA3PILaVOBNqk2lCt0vKPUg9XoNKZtg4TV3SpGqg==",
   "success": true,
-  "projectFilePath": "/Users/mint/Desktop/sherry-wen-2024-phase2/backend/backend.csproj",
+  "projectFilePath": "/Users/mint/Desktop/sherry-wen-2024-phase-2/backend/backend.csproj",
   "expectedPackageFiles": [
     "/Users/mint/.nuget/packages/awssdk.core/3.7.100.14/awssdk.core.3.7.100.14.nupkg.sha512",
     "/Users/mint/.nuget/packages/awssdk.securitytoken/3.7.100.14/awssdk.securitytoken.3.7.100.14.nupkg.sha512",

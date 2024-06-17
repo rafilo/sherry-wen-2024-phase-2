@@ -7,25 +7,39 @@ namespace Services;
 
 public class MongoDBService {
 
-    private readonly IMongoCollection<User> _userlistCollection;
+    private readonly IMongoCollection<UserInfo> _userlistCollection;
+    private readonly IMongoCollection<UserWebsites> _userwebsiteCollection;
 
     public MongoDBService(IOptions<MongoDBSettings> mongoDBSettings) {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
         IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);
-        _userlistCollection = database.GetCollection<User>(mongoDBSettings.Value.CollectionName);
+        _userlistCollection = database.GetCollection<UserInfo>(mongoDBSettings.Value.UserInfoCollectionName);
+        _userwebsiteCollection = database.GetCollection<UserWebsites>(mongoDBSettings.Value.UserWebsitesCollectionName);
     }
 
-    // since only one user is expected, we can just use the first element of the list
-    public async Task<User> GetAsync(string userEmail) {
-        var filter = Builders<User>.Filter.Eq("userEmail", userEmail);
-        var result = await _userlistCollection.Find(filter).ToListAsync();
-        return result.FirstOrDefault();
+    public async Task<List<UserInfo>> GetUserInfoByEmailAsync(string userEmail) {
+        return await _userlistCollection.Find(x => x.userEmail == userEmail).ToListAsync();
+     }
+    public async Task CreateUserInfoAsync(UserInfo userInfo) {
+        await _userlistCollection.InsertOneAsync(userInfo);
+        return;
     }
+    public async Task UpdateUserInfoAsync(string userEmail, object userInfo) {
 
-    public async Task CreateAsync(User userWebsite) {
-        await _userlistCollection.InsertOneAsync(userWebsite);
+        FilterDefinition<UserInfo> filter = Builders<UserInfo>.Filter.Eq("userEmail", userEmail);
+        UpdateDefinition<UserInfo> update = Builders<UserInfo>.Update.AddToSet<object>("userInfo", userInfo);
+        await _userlistCollection.UpdateOneAsync(filter, update);
+        return;
     }
-    public async Task UpdateAsync(string id, string movieId) {}
-    public async Task DeleteAsync(string id) { }
+    public async Task DeleteUserInfoAsync(string userEmail) {
+        FilterDefinition<UserInfo> filter = Builders<UserInfo>.Filter.Eq("userEmail", userEmail);
+        await _userlistCollection.DeleteOneAsync(filter);
+        return;
+     }
+
+    //public async Task<UserWebsites> GetUserWebsitesByEmailAsync(string userEmail) { }
+    //public async Task CreateUserWebsitesAsync(UserWebsites userWebsites) { }
+    //public async Task UpdateUserWebsitesAsync(string userEmail, string userWebsite) {}
+    //public async Task DeleteUserWebsitesAsync(string userEmail) { }
 
 }

@@ -1,0 +1,14 @@
+.link {
+    display: block;
+    width: 100px;
+    height: 25px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #e1f5fe;
+    color: #0288d1;
+    transition: background-color 0.5s, color 0.5s;
+}
+.link:hover {
+    color: #e1f5fe;
+    background-color: #0288d1;
+}

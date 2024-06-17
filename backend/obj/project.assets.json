@@ -8969,11 +8969,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/mint/Desktop/sherry-wen-2024-phase2/backend/backend.csproj",
+      "projectUniqueName": "/Users/mint/Desktop/sherry-wen-2024-phase-2/backend/backend.csproj",
       "projectName": "backend",
-      "projectPath": "/Users/mint/Desktop/sherry-wen-2024-phase2/backend/backend.csproj",
+      "projectPath": "/Users/mint/Desktop/sherry-wen-2024-phase-2/backend/backend.csproj",
       "packagesPath": "/Users/mint/.nuget/packages/",
-      "outputPath": "/Users/mint/Desktop/sherry-wen-2024-phase2/backend/obj/",
+      "outputPath": "/Users/mint/Desktop/sherry-wen-2024-phase-2/backend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/mint/.nuget/NuGet/NuGet.Config"

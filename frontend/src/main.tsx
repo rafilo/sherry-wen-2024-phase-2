@@ -19,8 +19,8 @@ const router = createBrowserRouter([
     element: <App />,
   },
 ]);
-
-ReactDOM.createRoot(document.getElementById("root")).render(
+const rootElement:HTMLElement = document.getElementById("root");
+ReactDOM.createRoot(rootElement).render(
   <GoogleOAuthProvider clientId="27086826403-fgtcr1tmjnla8gimk2c8kt7hfetmp1km.apps.googleusercontent.com">
     <React.StrictMode>
       

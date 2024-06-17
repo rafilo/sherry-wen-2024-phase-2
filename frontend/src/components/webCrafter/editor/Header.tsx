@@ -54,7 +54,7 @@ export const Header = ({ data }) => {
   function toggleEditable() {
 
     actions.setOptions((options) => (options.enabled = !canvasEditable));
-    if (!canvasEditable == true) {
+    if (!canvasEditable) {
       dispatch(setEditableTrue());
     } else {
       dispatch(setEditableFalse());
@@ -89,7 +89,7 @@ export const Header = ({ data }) => {
           style={{
             position: "absolute",
             right: "180px",
-            backgroundColor: canvasEditable ? null : "#bbdefb",
+            backgroundColor: canvasEditable ? "transparent" : "#bbdefb",
           }}
         >
           Preview
