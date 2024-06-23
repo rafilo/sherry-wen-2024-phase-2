@@ -5,27 +5,34 @@ using Models;
 
 namespace Controllers; 
 
-[Controller]
+[ApiController]
 [Route("api/[controller]")]
 public class UserInfoController : Controller
 {
-private readonly UserInfoService _userInfoService;
+    private readonly IUserInfoService _userInfoService;
 
-    public UserInfoController(UserInfoService userInfoService)
+    public UserInfoController(IUserInfoService userInfoService)
     {
         _userInfoService = userInfoService;
     }
+
     // GET: api/UserInfo
     [HttpGet]
     public async Task<List<UserInfo>> Get(string userEmail) { 
         return await _userInfoService.GetUserInfoByEmailAsync(userEmail);
+    }
+    // GET: api/Userinfo/AllUserInfo
+    [HttpGet]
+    [Route("AllUserInfo")]
+    public async Task<List<UserInfo>> GetAll() { 
+        return await _userInfoService.GetAllUserInfoAsync();
     }
 
     // POST: api/UserInfo
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] UserInfo userInfo) { 
         await _userInfoService.CreateUserInfoAsync(userInfo);
-        return CreatedAtAction(nameof(Get), new { id = userInfo.Id }, userInfo);
+        return CreatedAtAction(nameof(Get), new { id = userInfo._id }, userInfo);
     }
 
     // PUT: api/UserInfo/{userEmail}

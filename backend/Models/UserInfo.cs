@@ -6,8 +6,8 @@ public class UserInfo
 {   
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public int Id { get; set; }
+    public ObjectId _id { get; set; }
 
     
-    public string userEmail { get; set; }
+    public required string userEmail { get; set; }
 }

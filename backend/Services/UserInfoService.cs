@@ -5,7 +5,7 @@ using MongoDB.Bson;
 
 namespace Services;
 
-public class UserInfoService {
+public class UserInfoService: IUserInfoService {
     private readonly IMongoCollection<UserInfo> _userInfoCollection;
 
 
@@ -17,7 +17,12 @@ public class UserInfoService {
 
     public async Task<List<UserInfo>> GetUserInfoByEmailAsync(string userEmail) {
         return await _userInfoCollection.Find(x => x.userEmail == userEmail).ToListAsync();
-     }
+    }
+
+    public async Task<List<UserInfo>> GetAllUserInfoAsync() {
+        return await _userInfoCollection.Find(x => true).ToListAsync();
+    }
+
     public async Task CreateUserInfoAsync(UserInfo userInfo) {
         await _userInfoCollection.InsertOneAsync(userInfo);
         return;

@@ -23,6 +23,8 @@ builder.Services.AddSingleton<MongoDBService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IUserInfoService, UserInfoService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
