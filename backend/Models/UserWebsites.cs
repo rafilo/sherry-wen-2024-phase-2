@@ -11,8 +11,12 @@ public class UserWebsites
     public ObjectId _id { get; set; }
 
     public string UserEmail { get; set; }
-   
+    
     [BsonElement("items")]
     [JsonPropertyName("items")]
     public string UserWebsiteContent { get; set; } 
+
+    public UserWebsites(){
+        _id = ObjectId.GenerateNewId();
+    }
 }

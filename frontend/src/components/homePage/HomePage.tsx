@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { GoogleLogin } from "@react-oauth/google";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Grid,
@@ -34,12 +34,23 @@ interface googleUser {
 
 export const Homepage = () => {
   const navigate = useNavigate();
+  
 
   function jumpToCraftPage(data) {
     //pass the data to page
     navigate("/craftpage", { state: data });
   }
 
+  function jumpToDashboard(data){
+    navigate("/dashboard", { state: data });
+  }
+
+  async function loginProcessDotnet(credential){
+    const currentUser = jwt<googleUser>(credential);
+    console.log(currentUser.email);
+  }
+
+  // TODO: redirect to the dashboard, then replace the jumpToCraftPage()
   async function loginProcess(credential) {
     //test the process icon for waiting api response
     // await new Promise((r) => setTimeout(r, 5000));
@@ -67,7 +78,6 @@ export const Homepage = () => {
         console.log("loginProcess");
         //close the proccess icon
         handleClose();
-
         jumpToCraftPage(data);
       });
   }

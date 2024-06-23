@@ -10,4 +10,8 @@ public class UserInfo
 
     
     public required string userEmail { get; set; }
+
+    public UserInfo(){
+        _id = ObjectId.GenerateNewId();
+    }
 }
