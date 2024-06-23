@@ -1,6 +1,6 @@
 import {ObjectId} from 'mongodb';
 
 export interface UserInfo {
-    _id: ObjectId; 
+    _id: ObjectId | null; 
     userEmail: string
 }

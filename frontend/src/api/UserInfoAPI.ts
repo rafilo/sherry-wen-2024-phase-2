@@ -1,14 +1,16 @@
 import { UserInfo } from "../Models/UserInfo";
 
-const apiUrl = process.env.BACKEND_BASE_URL;
+const apiUrl = "http://localhost:5039/api";
 
-export const getCurrentUserInfo = async (): Promise<UserInfo> => {
-    const response = await fetch(`${apiUrl}/userInfo`);
+export const getCurrentUserInfo = async (userInfo: Omit<UserInfo, '_id'>) => {
+    const response = await fetch(`${apiUrl}/userInfo/${userInfo.userEmail}`);
     const data = await response.json();
     return data;
 }
 
-export const createUserInfo = async (userInfo: Omit<UserInfo, '_id'>): Promise<UserInfo> => {
+//TODO: need to test
+export const createUserInfo = async (userInfo: Omit<UserInfo, '_id'>) => {
+    
     const response = await fetch(`${apiUrl}/userInfo`, {
         method: 'POST',
         headers: {
@@ -18,14 +20,5 @@ export const createUserInfo = async (userInfo: Omit<UserInfo, '_id'>): Promise<U
     })
     const data = await response.json();
     return data;
-}
-
-export const createIfNotExists = async (userInfo: Omit<UserInfo, '_id'>): Promise<string> => {
-    const userInfoExists = getCurrentUserInfo();
-    let response = `user ${userInfo.userEmail} already exists`
-    if (!userInfoExists) {
-        const createResponse = createUserInfo(userInfo);
-        response = JSON.stringify(createResponse);
-    }
-    return response
+    
 }

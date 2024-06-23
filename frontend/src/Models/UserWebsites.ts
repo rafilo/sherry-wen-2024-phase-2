@@ -1,10 +1,12 @@
 import {ObjectId} from 'mongodb';
 
+interface Userwebsite {
+    WebsiteName: string;
+     WebsiteContent: string;
+}
+
 export interface UserWebsites {
-    _id: ObjectId;
+    _id: ObjectId | null;
     UserEmail: string;
-    UserWebsite: {
-        WebsiteName: string;
-        WebsiteContent: string;
-    }
+    UserWebsites: Userwebsite[]
 }

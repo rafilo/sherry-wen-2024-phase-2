@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import {store} from "./store/store";
 import ErrorPage from "./ErrorPage.js";
 import App from "./App.js";
-import axios from 'axios';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
@@ -24,9 +23,6 @@ const router = createBrowserRouter([
     element: <App />,
   },
 ]);
-axios.defaults.baseURL = process.env.BACKEND_BASE_URL;
-axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
-axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 const rootElement:HTMLElement = document.getElementById("root");
 ReactDOM.createRoot(rootElement).render(

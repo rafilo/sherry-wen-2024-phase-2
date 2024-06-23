@@ -16,8 +16,8 @@ public class UserInfoController : Controller
         _userInfoService = userInfoService;
     }
 
-    // GET: api/UserInfo
-    [HttpGet]
+    // GET: api/UserInfo/
+    [HttpGet("{userEmail}")]
     public async Task<List<UserInfo>> Get(string userEmail) { 
         return await _userInfoService.GetUserInfoByEmailAsync(userEmail);
     }
