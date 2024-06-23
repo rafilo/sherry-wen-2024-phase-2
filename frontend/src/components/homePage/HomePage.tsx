@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import {
-  Box,
   Grid,
-  Button,
-  FormControlLabel,
   Breadcrumbs,
   Link,
   Typography,
@@ -25,6 +22,9 @@ import WebIcon from "@mui/icons-material/Web";
 import AutoModeIcon from "@mui/icons-material/AutoMode";
 import { getCurrentUserInfo, createUserInfo} from "../../api/UserInfoAPI";
 import { UserInfo } from "../../Models/UserInfo";
+import homeLogo from "../../assets/home.png"
+import homeTitle from "../../assets/title.svg"
+import headerLogo from "../../assets/logo.svg"
 //import styles from "../../../assets/HomePage.module.css";
 
 //define the jwt decode object
@@ -43,6 +43,7 @@ export const Homepage = () => {
     navigate("/craftpage", { state: data });
   }
 
+  //TODO
   function jumpToDashboard(data){
     navigate("/dashboard", { state: data });
   }
@@ -140,7 +141,7 @@ export const Homepage = () => {
         style={{ height: "10%", width: "100%" }}
       >
         <img
-          src="../../../assets/logo.svg"
+          src={headerLogo}
           style={{
             height: "70px",
             width: "70px",
@@ -150,7 +151,7 @@ export const Homepage = () => {
           }}
         ></img>
         <img
-          src="../../../assets/title.svg"
+          src={homeTitle}
           style={{
             position: "absolute",
             left: "143px",
@@ -278,7 +279,7 @@ export const Homepage = () => {
         </div>
 
         <img
-          src="../../../assets/home.png"
+          src={homeLogo}
           style={{
             height: "550px",
             width: "700px",

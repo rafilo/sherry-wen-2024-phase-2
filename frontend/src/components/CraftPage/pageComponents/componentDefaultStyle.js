@@ -17,5 +17,4 @@ export default {
   settingPanelSlide: {
     minWidth: "180px"
   }
-
 };

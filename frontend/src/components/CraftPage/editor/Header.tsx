@@ -74,11 +74,11 @@ export const Header = ({ data }) => {
     <Box className="header" sx={{ borderBottom: 1, borderColor: "grey.300" }}>
       <Grid container alignItems="left">
         <img
-          src="../../../../assets/logo.svg"
+          src="../../../assets/logo.svg"
           style={{ height: "30px", width: "30px" }}
         ></img>
         <img
-          src="../../../../assets/title.svg"
+          src="../../../assets/title.svg"
           style={{ position: "absolute", left: "5px", top: "-22px" }}
         ></img>
 
