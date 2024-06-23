@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0RNThaGtFlyo0UN8XgiF96FcbbRF5b1nlF+CYBsPZ90kb4EA3PILaVOBNqk2lCt0vKPUg9XoNKZtg4TV3SpGqg==",
+  "dgSpecHash": "DpxMZv7S1AECpWokR9xYbvGce8ndUXJaYd6zgso/z6Pt5nk3/ZzdLrnFqndHmIJXT6F8Cs7q9Bb5i8cccClDWw==",
   "success": true,
   "projectFilePath": "/Users/mint/Desktop/sherry-wen-2024-phase-2/backend/backend.csproj",
   "expectedPackageFiles": [
@@ -83,9 +83,9 @@
     "/Users/mint/.nuget/packages/microsoft.data.sqlclient.sni.runtime/5.1.1/microsoft.data.sqlclient.sni.runtime.5.1.1.nupkg.sha512",
     "/Users/mint/.nuget/packages/microsoft.diasymreader/2.0.0/microsoft.diasymreader.2.0.0.nupkg.sha512",
     "/Users/mint/.nuget/packages/microsoft.dotnet.scaffolding.shared/8.0.2/microsoft.dotnet.scaffolding.shared.8.0.2.nupkg.sha512",
-    "/Users/mint/.nuget/packages/microsoft.entityframeworkcore/8.0.5/microsoft.entityframeworkcore.8.0.5.nupkg.sha512",
-    "/Users/mint/.nuget/packages/microsoft.entityframeworkcore.abstractions/8.0.5/microsoft.entityframeworkcore.abstractions.8.0.5.nupkg.sha512",
-    "/Users/mint/.nuget/packages/microsoft.entityframeworkcore.analyzers/8.0.5/microsoft.entityframeworkcore.analyzers.8.0.5.nupkg.sha512",
+    "/Users/mint/.nuget/packages/microsoft.entityframeworkcore/8.0.6/microsoft.entityframeworkcore.8.0.6.nupkg.sha512",
+    "/Users/mint/.nuget/packages/microsoft.entityframeworkcore.abstractions/8.0.6/microsoft.entityframeworkcore.abstractions.8.0.6.nupkg.sha512",
+    "/Users/mint/.nuget/packages/microsoft.entityframeworkcore.analyzers/8.0.6/microsoft.entityframeworkcore.analyzers.8.0.6.nupkg.sha512",
     "/Users/mint/.nuget/packages/microsoft.entityframeworkcore.design/8.0.5/microsoft.entityframeworkcore.design.8.0.5.nupkg.sha512",
     "/Users/mint/.nuget/packages/microsoft.entityframeworkcore.inmemory/8.0.5/microsoft.entityframeworkcore.inmemory.8.0.5.nupkg.sha512",
     "/Users/mint/.nuget/packages/microsoft.entityframeworkcore.relational/8.0.5/microsoft.entityframeworkcore.relational.8.0.5.nupkg.sha512",
@@ -129,6 +129,7 @@
     "/Users/mint/.nuget/packages/mongodb.bson/2.26.0/mongodb.bson.2.26.0.nupkg.sha512",
     "/Users/mint/.nuget/packages/mongodb.driver/2.26.0/mongodb.driver.2.26.0.nupkg.sha512",
     "/Users/mint/.nuget/packages/mongodb.driver.core/2.26.0/mongodb.driver.core.2.26.0.nupkg.sha512",
+    "/Users/mint/.nuget/packages/mongodb.entityframeworkcore/8.0.2/mongodb.entityframeworkcore.8.0.2.nupkg.sha512",
     "/Users/mint/.nuget/packages/mongodb.libmongocrypt/1.9.0/mongodb.libmongocrypt.1.9.0.nupkg.sha512",
     "/Users/mint/.nuget/packages/mono.texttemplating/2.3.1/mono.texttemplating.2.3.1.nupkg.sha512",
     "/Users/mint/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",

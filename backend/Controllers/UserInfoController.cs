@@ -18,9 +18,10 @@ public class UserInfoController : Controller
 
     // GET: api/UserInfo/
     [HttpGet("{userEmail}")]
-    public async Task<List<UserInfo>> Get(string userEmail) { 
+    public async Task<UserInfo> Get(string userEmail) { 
         return await _userInfoService.GetUserInfoByEmailAsync(userEmail);
     }
+
     // GET: api/Userinfo/AllUserInfo
     [HttpGet]
     [Route("AllUserInfo")]
@@ -31,14 +32,18 @@ public class UserInfoController : Controller
     // POST: api/UserInfo
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] UserInfo userInfo) { 
+        var isUserExist = await _userInfoService.UserInfoExistsAsync(userInfo.userEmail);
+        if(isUserExist){
+            return BadRequest("User already exists");
+        }
         await _userInfoService.CreateUserInfoAsync(userInfo);
         return CreatedAtAction(nameof(Get), new { id = userInfo._id }, userInfo);
     }
 
     // PUT: api/UserInfo/{userEmail}
     [HttpPut("{userEmail}")]
-    public async Task<IActionResult> UpdateUserInfoAsync(string userEmail, [FromBody] object userInfo) {
-        await _userInfoService.UpdateUserInfoAsync(userEmail, userInfo);
+    public async Task<IActionResult> UpdateUserInfoAsync([FromBody] UserInfo userInfo) {
+        await _userInfoService.UpdateUserInfoAsync(userInfo);
         return NoContent();
     }
 

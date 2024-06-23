@@ -75,6 +75,10 @@
               "target": "Package",
               "version": "[2.26.0, )"
             },
+            "MongoDB.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"

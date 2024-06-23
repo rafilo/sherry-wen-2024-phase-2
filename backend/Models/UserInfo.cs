@@ -4,12 +4,12 @@ using MongoDB.Bson.Serialization.Attributes;
 
 public class UserInfo
 {   
+    public required string userEmail { get; set; }
+
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public ObjectId _id { get; set; }
+    public ObjectId? _id { get; set; }
 
-    
-    public required string userEmail { get; set; }
 
     public UserInfo(){
         _id = ObjectId.GenerateNewId();

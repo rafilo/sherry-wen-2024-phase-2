@@ -2,41 +2,55 @@ using Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using Microsoft.EntityFrameworkCore;
+using MongoDB.EntityFrameworkCore.Extensions;
 
 namespace Services;
 
 public class UserInfoService: IUserInfoService {
-    private readonly IMongoCollection<UserInfo> _userInfoCollection;
+    //private readonly IMongoCollection<UserInfo> _userInfoCollection;
+    private readonly UserInfoContext _userInfoCollection;
 
 
     public UserInfoService(IOptions<MongoDBSettings> mongoDBSettings) {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
-        IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);
-        _userInfoCollection = database.GetCollection<UserInfo>(mongoDBSettings.Value.UserInfoCollectionName);
+        //IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);
+        //UserInfoContext database = UserInfoContext.Create(client.GetDatabase(mongoDBSettings.Value.DatabaseName));
+        //_userInfoCollection = UserInfoContext.GetDB(database, mongoDBSettings.Value.UserInfoCollectionName);
+        //_userInfoCollection = database.GetCollection<UserInfo>(mongoDBSettings.Value.UserInfoCollectionName);
+        var dbContextOptions =
+            new DbContextOptionsBuilder<UserInfoContext>().UseMongoDB(client,mongoDBSettings.Value.DatabaseName);
+        _userInfoCollection = new UserInfoContext(dbContextOptions.Options);
     }
 
-    public async Task<List<UserInfo>> GetUserInfoByEmailAsync(string userEmail) {
-        return await _userInfoCollection.Find(x => x.userEmail == userEmail).ToListAsync();
+    public async Task<UserInfo> GetUserInfoByEmailAsync(string userEmail) {
+
+        return _userInfoCollection.UserInfo.SingleOrDefault(user => user.userEmail == userEmail);
+        
     }
 
     public async Task<List<UserInfo>> GetAllUserInfoAsync() {
-        return await _userInfoCollection.Find(x => true).ToListAsync();
+        return await _userInfoCollection.UserInfo.ToListAsync();
     }
 
     public async Task CreateUserInfoAsync(UserInfo userInfo) {
-        await _userInfoCollection.InsertOneAsync(userInfo);
-        return;
+        _userInfoCollection.UserInfo.Add(userInfo);
+        await _userInfoCollection.SaveChangesAsync();
     }
-    public async Task UpdateUserInfoAsync(string userEmail, object userInfo) {
+    public async Task UpdateUserInfoAsync(UserInfo userInfo) {
 
-        FilterDefinition<UserInfo> filter = Builders<UserInfo>.Filter.Eq("userEmail", userEmail);
-        UpdateDefinition<UserInfo> update = Builders<UserInfo>.Update.AddToSet<object>("userInfo", userInfo);
-        await _userInfoCollection.UpdateOneAsync(filter, update);
-        return;
+        _userInfoCollection.Entry(userInfo).State = EntityState.Modified;
+        await _userInfoCollection.SaveChangesAsync();
     }
     public async Task DeleteUserInfoAsync(string userEmail) {
-        FilterDefinition<UserInfo> filter = Builders<UserInfo>.Filter.Eq("userEmail", userEmail);
-        await _userInfoCollection.DeleteOneAsync(filter);
-        return;
+        var user = await _userInfoCollection.UserInfo.FindAsync(userEmail);
+        if (user != null)
+            {
+                _userInfoCollection.UserInfo.Remove(user);
+                await _userInfoCollection.SaveChangesAsync();
+            }
+     }
+     public async Task<bool> UserInfoExistsAsync(string userEmail){
+        return await _userInfoCollection.UserInfo.AnyAsync(e => e.userEmail == userEmail);
      }
 }

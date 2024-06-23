@@ -265,3 +265,4 @@
 /Users/mint/Desktop/sherry-wen-2024-phase-2/backend/obj/Debug/net8.0/backend.pdb
 /Users/mint/Desktop/sherry-wen-2024-phase-2/backend/obj/Debug/net8.0/backend.genruntimeconfig.cache
 /Users/mint/Desktop/sherry-wen-2024-phase-2/backend/obj/Debug/net8.0/ref/backend.dll
+/Users/mint/Desktop/sherry-wen-2024-phase-2/backend/bin/Debug/net8.0/MongoDB.EntityFrameworkCore.dll

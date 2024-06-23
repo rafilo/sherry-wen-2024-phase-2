@@ -8,7 +8,7 @@ public class UserWebsites
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public ObjectId _id { get; set; }
+    public ObjectId? _id { get; set; }
 
     public string UserEmail { get; set; }
     
