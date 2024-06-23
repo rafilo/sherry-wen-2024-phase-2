@@ -18,12 +18,12 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDB"));
-builder.Services.AddSingleton<MongoDBService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IUserInfoService, UserInfoService>();
+//builder.Services.AddScoped<IUserWebsitesServices, UserWebsitesService>();
 
 var app = builder.Build();
 
