@@ -25,7 +25,11 @@ public class UserInfoService: IUserInfoService {
 
     public async Task<UserInfo> GetUserInfoByEmailAsync(string userEmail) {
 
-        return _userInfoCollection.UserInfo.SingleOrDefault(user => user.userEmail == userEmail);
+        var userInfo = await _userInfoCollection.UserInfo.SingleOrDefaultAsync(user => user.userEmail == userEmail);
+        if (userInfo == null){
+            return null;
+        }
+        return userInfo;
         
     }
 
