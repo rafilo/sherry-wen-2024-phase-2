@@ -23,13 +23,13 @@ The main Tech stacks we are using in this project are listed below:
 
 ## Basic & advanced features for this project
 project features:
-  - []Login with Google authentication
-  - dashboard for showing the user's website
-  - Provide basic widgets for users to build the website
-  - Provide a flexible drag-and-drop feature for people to add and modify the widget for their webpage in canvas
-  - Styles and properties of widgets can be modified easily from the settings panel
-  - Modifiable and customizable switch/button/chip for multiple usage.
-  - support event for some of the widgets (e.g: support on click event on button)
+  - [x] Login with Google authentication
+  - [ ] dashboard for showing the user's website
+  - [x] Provide basic widgets for users to build the website
+  - [x] Provide a flexible drag-and-drop feature for people to add and modify the widget for their webpage in canvas
+  - [x] Styles and properties of widgets can be modified easily from the settings panel
+  - [x] Modifiable and customizable switch/button/chip for multiple usage.
+  - [x] support event for some of the widgets (e.g: support on click event on button)
 
 basic features:
   - Frontend:
