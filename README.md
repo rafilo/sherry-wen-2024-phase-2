@@ -23,49 +23,49 @@ The main Tech stacks we are using in this project are listed below:
 
 ## Basic & advanced features for this project
 project features:
-    - Login with Google authentication
-    - dashboard for showing the user's website
-    - Provide basic widgets for users to build the website
-    - Provide a flexible drag-and-drop feature for people to add and modify the widget for their webpage in canvas
-    - Styles and properties of widgets can be modified easily from the settings panel
-    - Modifiable and customizable switch/button/chip for multiple usage.
-    - support event for some of the widgets (e.g: support on click event on button)
+  - []Login with Google authentication
+  - dashboard for showing the user's website
+  - Provide basic widgets for users to build the website
+  - Provide a flexible drag-and-drop feature for people to add and modify the widget for their webpage in canvas
+  - Styles and properties of widgets can be modified easily from the settings panel
+  - Modifiable and customizable switch/button/chip for multiple usage.
+  - support event for some of the widgets (e.g: support on click event on button)
 
 basic features:
-    - Frontend:
-      - React using TypeScript
-      - Use MaterialUI as the major styling library, tailwindcss for customizing the styling
-      - react-router for routing
-      - responsive UI for desktop (NOTE: since Web Crafter is designed for users to design their websites for desktop usage, it is not recommended and not reasonable to make the website responsive for mobile devices, as the screen of the mobile will be too small for user to design their website)  
-    - Backend
-      - .net as backend
-      - EFCore for handling database queries
-      - uses NOSQL as the database
-      - basic CURD for the user's website
+  - Frontend:
+    - [x] React using TypeScript
+    - [x] Use MaterialUI as the major styling library, tailwindcss for customizing the styling
+    - [x] react-router for routing
+    - [ ] responsive UI for desktop (NOTE: since Web Crafter is designed for users to design their websites for desktop usage, it is not recommended and not reasonable to make the website responsive for mobile devices, as the screen of the mobile will be too small for user to design their website)  
+  - Backend
+    - [x] .net as backend
+    - [x] EFCore for handling database queries
+    - [x] uses NOSQL as the database
+    - [ ] basic CURD for the user's website
 
 Advanced features:
-    - Redux toolkit for state management
-    - Containerize the project using docker
-    - Unit testing components
-    - E2E testing with cypress
+  - [x] Redux toolkit for state management
+  - [ ] Containerize the project using Docker
+  - [ ] Unit testing components
+  - [ ] E2E testing with cypress
 
 
 ## Running Project
 
-1. Setup .net environment, and make sure MongoDB is installed on the computer.
+1. Set up the .net environment, and make sure MongoDB is installed on the computer.
 
 2. run the project:
-    - cd to `frontend` folder. Run the command below to start the frontend
-    ```bash
-    npm install 
-    npm run dev
-    ```
+  - cd to `frontend` folder. Run the command below to start the frontend
+  ```bash
+  npm install 
+  npm run dev
+  ```
 
-    - then cd to `backend` folder, run the command below to start the backend
-    ```bash
-    dotnet build
-    dotnet run
-    ```
+  - then cd to `backend` folder, run the command below to start the backend
+  ```bash
+  dotnet build
+  dotnet run
+  ```
 
 ## Tests
 
