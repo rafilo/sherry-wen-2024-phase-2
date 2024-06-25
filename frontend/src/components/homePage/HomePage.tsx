@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/store";
-import { setCurrentUserEmail } from "../../store/reducer/loggedinUserInfoReducer";
+import { setCurrentUserInfo } from "../../store/reducer/loggedinUserInfoReducer";
 import { getCurrentUserInfo, createUserInfo} from "../../api/UserInfoAPI";
 import { UserInfo } from "../../Models/UserInfo";
 
@@ -43,17 +43,10 @@ interface googleUser {
 export const Homepage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const useremailInStore = useSelector((state: RootState) => state.loggedinUser)
   
-
   function jumpToCraftPage(data) {
     //pass the data to page
     navigate("/craftpage", { state: data });
-  }
-
-  //TODO
-  function jumpToDashboard(){
-    navigate("/dashboard");
   }
 
   async function loginProcessDotnet(credential){
@@ -61,26 +54,22 @@ export const Homepage = () => {
     const currentUser = jwt<googleUser>(credential);
     const currentUserInfo:UserInfo = {
       _id: {},
-      userEmail: currentUser.email
+      userEmail: currentUser.email,
+      userWebsite: ""
     }
     const storedUserInfo = await getCurrentUserInfo(currentUserInfo);
     console.log(storedUserInfo)
     if(Object.keys(storedUserInfo).length === 0){
       await createUserInfo(currentUserInfo)
     }
-    dispatch(setCurrentUserEmail(currentUser.email))
-    //TODO: save user email to store
-    console.log("email value in store:", useremailInStore)
+    dispatch(setCurrentUserInfo(currentUserInfo))
     handleClose();
-    jumpToDashboard();
   }
 
   // TODO: redirect to the dashboard, then replace the jumpToCraftPage()
   async function loginProcess(credential) {
     //test the process icon for waiting api response
     // await new Promise((r) => setTimeout(r, 5000));
-   
-
     const user = jwt<googleUser>(credential);
     console.log(user.email);
     // call api to create user when first login

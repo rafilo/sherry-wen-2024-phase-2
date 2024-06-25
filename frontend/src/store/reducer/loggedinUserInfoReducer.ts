@@ -1,19 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 interface userInfo {
-    userEmail: string
+    userEmail: string,
+    userWebsite: string
 }
 const initialState: userInfo = {
-    userEmail: ''
+    userEmail: '',
+    userWebsite: ''
 }
 
 export const loggedinUserInfoSlice = createSlice({
     name: 'loggedinUserInfo',
     initialState,
     reducers: {
-        setCurrentUserEmail: (state, action) => {
-            state.userEmail = action.payload
+        setCurrentUserInfo: (state, action) => {
+            state = action.payload
         }
     }
 })
 export default loggedinUserInfoSlice.reducer
-export const { setCurrentUserEmail} = loggedinUserInfoSlice.actions
+export const { setCurrentUserInfo} = loggedinUserInfoSlice.actions

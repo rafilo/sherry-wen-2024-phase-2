@@ -24,13 +24,11 @@ public class UserInfoService: IUserInfoService {
     }
 
     public async Task<UserInfo> GetUserInfoByEmailAsync(string userEmail) {
-
         var userInfo = await _userInfoCollection.UserInfo.SingleOrDefaultAsync(user => user.userEmail == userEmail);
         if (userInfo == null){
             return null;
         }
         return userInfo;
-        
     }
 
     public async Task<List<UserInfo>> GetAllUserInfoAsync() {
@@ -42,12 +40,11 @@ public class UserInfoService: IUserInfoService {
         await _userInfoCollection.SaveChangesAsync();
     }
     public async Task UpdateUserInfoAsync(UserInfo userInfo) {
-
         _userInfoCollection.Entry(userInfo).State = EntityState.Modified;
         await _userInfoCollection.SaveChangesAsync();
     }
     public async Task DeleteUserInfoAsync(string userEmail) {
-        var user = await _userInfoCollection.UserInfo.FindAsync(userEmail);
+        var user = await _userInfoCollection.UserInfo.SingleOrDefaultAsync(user => user.userEmail == userEmail);
         if (user != null)
             {
                 _userInfoCollection.UserInfo.Remove(user);

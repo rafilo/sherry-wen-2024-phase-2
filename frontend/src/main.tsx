@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Homepage } from "./components/HomePage/HomePage.js";
-import { DashBoard } from "./components/DashBoard/DashBoard.js";
 import { Provider } from "react-redux";
 import {store} from "./store/store";
 import ErrorPage from "./ErrorPage.js";
@@ -14,10 +13,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <Homepage />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path:"/dashboard",
-    element: <DashBoard />,
   },
   {
     path: "/craftpage",

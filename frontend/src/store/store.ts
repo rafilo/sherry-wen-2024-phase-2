@@ -6,7 +6,7 @@ import loggedinUserInfoReducer from './reducer/loggedinUserInfoReducer';
 export const store = configureStore({
     reducer: {
       counter: editableReducer,
-      loggedinUser: loggedinUserInfoReducer
+      loggedinUser: loggedinUserInfoReducer,
     },
   })
   
