@@ -24,19 +24,18 @@ The main Tech stacks we are using in this project are listed below:
 ## Basic & advanced features for this project
 project features:
   - [x] Login with Google authentication
-  - [ ] dashboard for showing the user's website
   - [x] Provide basic widgets for users to build the website
   - [x] Provide a flexible drag-and-drop feature for people to add and modify the widget for their webpage in canvas
   - [x] Styles and properties of widgets can be modified easily from the settings panel
   - [x] Modifiable and customizable switch/button/chip for multiple usage.
-  - [x] support event for some of the widgets (e.g: support on click event on button)
+  - [x] support event for some of the widgets (e.g: support on click event on Button)
 
 basic features:
   - Frontend:
     - [x] React using TypeScript
-    - [x] Use MaterialUI as the major styling library, tailwindcss for customizing the styling
+    - [x] Use MaterialUI as the major styling library
     - [x] react-router for routing
-    - [ ] responsive UI for desktop (NOTE: since Web Crafter is designed for users to design their websites for desktop usage, it is not recommended and not reasonable to make the website responsive for mobile devices, as the screen of the mobile will be too small for user to design their website)  
+    - [ ] responsive UI for desktop (NOTE: since Web Crafter is designed for users to design their websites for desktop usage, it is not recommended and not reasonable to make the website responsive for mobile devices, as the screen of the mobile will be too small for users to design their website)  
   - Backend
     - [x] .net as backend
     - [x] EFCore for handling database queries
@@ -66,6 +65,8 @@ Advanced features:
   dotnet build
   dotnet run
   ```
+
+3. open `localhost:5173` in the browser (preferably google chrome)
 
 ## Tests
 
