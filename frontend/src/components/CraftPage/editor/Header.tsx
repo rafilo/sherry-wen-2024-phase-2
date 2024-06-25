@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {RootState} from "../../../store/store";
+import { RootState } from "../../../store/store";
 import { useEditor } from "@craftjs/core";
 import { useSelector, useDispatch } from "react-redux";
 import { setEditableTrue, setEditableFalse } from "../../../store/reducer/editableReducer";

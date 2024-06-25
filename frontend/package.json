@@ -21,6 +21,7 @@
     "@types/mongodb": "^4.0.7",
     "axios": "^1.7.2",
     "babel-plugin-import": "^1.13.6",
+    "bson": "^6.7.0",
     "concurrently": "^8.0.1",
     "cookie-parser": "^1.4.6",
     "cookie-session": "^2.1.0",
