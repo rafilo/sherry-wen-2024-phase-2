@@ -18,9 +18,13 @@ import { styled } from "@mui/material/styles";
 import SaveAltIcon from "@mui/icons-material/SaveAlt";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
+import homeTitle from "../../../assets/title.svg"
+import headerLogo from "../../../assets/logo.svg"
 
 export const Header = ({ data }) => {
   const { actions, query } = useEditor((state) => ({
@@ -47,12 +51,15 @@ export const Header = ({ data }) => {
     console.log(query.serialize());
   }
 
+  async function deleteUserWebsite(){
+    console.log("delete")
+  }
+
   function logout() {
     navigate("/");
   }
   // update editable state in redux for control usage
   function toggleEditable() {
-
     actions.setOptions((options) => (options.enabled = !canvasEditable));
     if (!canvasEditable) {
       dispatch(setEditableTrue());
@@ -66,6 +73,12 @@ export const Header = ({ data }) => {
       backgroundColor: "#bbdefb",
     },
   });
+  const Deletebutton = styled(Button)({
+    "&:hover": {
+      backgroundColor: "#ffd9d9",
+    },
+    color: "#ff0000"
+  })
   const handleClose = () => {
     setOpen(false);
   };
@@ -74,14 +87,24 @@ export const Header = ({ data }) => {
     <Box className="header" sx={{ borderBottom: 1, borderColor: "grey.300" }}>
       <Grid container alignItems="left">
         <img
-          src="../../../assets/logo.svg"
+          src={headerLogo}
           style={{ height: "30px", width: "30px" }}
         ></img>
         <img
-          src="../../../assets/title.svg"
+          src={homeTitle}
           style={{ position: "absolute", left: "5px", top: "-22px" }}
         ></img>
-
+        <Deletebutton
+          size="small"
+          startIcon={<DeleteOutlineIcon />}
+          onClick={deleteUserWebsite}
+          style={{
+            position: "absolute",
+            right: "285px",
+          }}
+        >
+          Delete
+        </Deletebutton>
         <TopbarButton
           size="small"
           startIcon={<PlayCircleOutlineIcon />}
@@ -90,6 +113,7 @@ export const Header = ({ data }) => {
             position: "absolute",
             right: "180px",
             backgroundColor: canvasEditable ? "transparent" : "#bbdefb",
+            
           }}
         >
           Preview

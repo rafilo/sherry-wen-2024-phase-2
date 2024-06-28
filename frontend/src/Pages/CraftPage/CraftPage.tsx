@@ -1,11 +1,16 @@
-import React,{ useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
-
-import { Grid, Paper, Typography,Snackbar,Alert, AlertTitle} from "@mui/material";
-
-import { Toolbox } from "./editor/Toolbox";
-import { SettingsPanel } from "./editor/SettingsPanel";
-import { Header } from "./editor/Header";
+import {
+  Grid,
+  Paper,
+  Typography,
+  Snackbar,
+  Alert,
+  AlertTitle,
+} from "@mui/material";
+import { Toolbox } from "./editorComponents/Toolbox";
+import { SettingsPanel } from "./editorComponents/SettingsPanel";
+import { Header } from "./editorComponents/Header";
 import SettingsIcon from "@mui/icons-material/Settings";
 
 import {
@@ -21,12 +26,11 @@ import {
   MaterialSelect,
   MaterialRating,
 } from "./pageComponents/exportComponents";
-
 import { Editor, Frame, Element } from "@craftjs/core";
-
 import { RootState } from "../../store/store";
 import { useLocation } from "react-router-dom";
 
+type websiteData = JSON | string;
 
 export default function CraftPage() {
   const craftPageStyles = {
@@ -41,19 +45,17 @@ export default function CraftPage() {
     },
   };
 
-  //get the data of user
+  //get saved website data from user
   const { state } = useLocation();
-  //for the saving json data
-  const savedData = state.userData;
-  const canvasEditable = useSelector((state: RootState) => state)
+  const userSavedData:websiteData = state.userWebsite;
 
-  const [open, setOpen] = useState(true);
+  const canvasEditable = useSelector((state: RootState) => state);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const handleClose = () => {
-    setOpen(false);
+  const closeLoadingSnackbar = () => {
+    setIsLoading(false);
   };
 
-  // TODO: merge topbar component with the main canvas component
   return (
     <div
       className="craft-page"
@@ -61,11 +63,16 @@ export default function CraftPage() {
         overflow: "hidden",
         ...craftPageStyles.container,
       }}
-    >   
-      <Snackbar open={open} autoHideDuration={3000} anchorOrigin={ {vertical: 'top', horizontal: 'center' }} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+    >
+      <Snackbar
+        open={isLoading}
+        autoHideDuration={3000}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        onClose={closeLoadingSnackbar}
+      >
+        <Alert onClose={closeLoadingSnackbar} severity="success" sx={{ width: "100%" }}>
           <AlertTitle>Success</AlertTitle>
-            Loading data successfully!
+          Loading data successfully!
         </Alert>
       </Snackbar>
       <Editor
@@ -81,7 +88,6 @@ export default function CraftPage() {
           MaterialSwitch,
           MaterialSelect,
           MaterialRating,
-          
         }}
         style={{ height: "100%" }}
       >
@@ -97,7 +103,7 @@ export default function CraftPage() {
               overflow: "auto",
             }}
             style={{
-              display: canvasEditable ? "inhirit" : "none"
+              display: canvasEditable ? "inhirit" : "none",
             }}
           >
             <Paper style={craftPageStyles.container}>
@@ -113,7 +119,7 @@ export default function CraftPage() {
               backgroundColor: "#eeeeee",
             }}
           >
-            <Frame style={craftPageStyles.container} json={savedData}>
+            <Frame style={craftPageStyles.container} json={userSavedData}>
               <Element is={Container} padding={20} margin={30} canvas>
                 <Card />
                 <MaterialButton size="small" variant="outlined">
@@ -121,7 +127,11 @@ export default function CraftPage() {
                 </MaterialButton>
                 <Text size="small" text="Hi world!" align="inherit" />
                 <Element is={Container} padding={5} canvas>
-                  <Text size="small" text="It's me again!" align="inherit" />
+                  <Text
+                    size="small"
+                    text="This is a default text"
+                    align="inherit"
+                  />
                 </Element>
               </Element>
             </Frame>

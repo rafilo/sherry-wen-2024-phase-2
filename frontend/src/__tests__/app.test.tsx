@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import { Provider } from "react-redux";
 import { render, screen } from '@testing-library/react';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Homepage } from "../components/HomePage/HomePage.js";
+import { Homepage } from "../Pages/HomePage/HomePage.js";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 // npm test -- app.test.jsx
 it('renders the homepage', () => {

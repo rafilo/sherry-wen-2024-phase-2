@@ -5,8 +5,8 @@ export const editableSlice = createSlice({
   name: 'editable',
   initialState,
   reducers: {
-    setEditableTrue: (state:boolean) => {state = true},
-    setEditableFalse: (state:boolean) => {state = false},
+    setEditableTrue: (state:boolean) => {return state = true},
+    setEditableFalse: (state:boolean) => {return state = false},
   }
 })
 export const {setEditableTrue, setEditableFalse } = editableSlice.actions

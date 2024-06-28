@@ -25,5 +25,7 @@ export const createUserInfo = async (userInfo: UserInfo):Promise<UserInfo> => {
     const data = await response.json();
     // const data = await response;
     return data;
-    
 }
+
+//export const updateUserInfo = async (userInfo: UserInfo):Promise<UserInfo> => {}
+//export const deleteUserInfo = async (userInfo: UserInfo):Promise<UserInfo> => {}

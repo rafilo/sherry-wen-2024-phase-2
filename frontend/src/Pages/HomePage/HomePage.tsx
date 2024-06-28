@@ -46,24 +46,27 @@ export const Homepage = () => {
   
   function jumpToCraftPage(data) {
     //pass the data to page
+    debugger
     navigate("/craftpage", { state: data });
   }
 
   async function loginProcessDotnet(credential){
     setOpen(true)
     const currentUser = jwt<googleUser>(credential);
-    const currentUserInfo:UserInfo = {
+    let currentUserInfo:UserInfo = {
       _id: {},
       userEmail: currentUser.email,
       userWebsite: ""
     }
-    const storedUserInfo = await getCurrentUserInfo(currentUserInfo);
-    console.log(storedUserInfo)
+    const storedUserInfo = await getCurrentUserInfo(currentUserInfo) as UserInfo
     if(Object.keys(storedUserInfo).length === 0){
       await createUserInfo(currentUserInfo)
+    } else {
+      currentUserInfo = storedUserInfo;
     }
     dispatch(setCurrentUserInfo(currentUserInfo))
     handleClose();
+    jumpToCraftPage(currentUserInfo);
   }
 
   // TODO: redirect to the dashboard, then replace the jumpToCraftPage()
