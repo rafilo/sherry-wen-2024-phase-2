@@ -91,7 +91,7 @@ export default function CraftPage() {
         }}
         style={{ height: "100%" }}
       >
-        <Header data={state} />
+        <Header currentUserData={state} />
         <Grid container spacing={0} style={craftPageStyles.gridContainer}>
           <Grid
             item

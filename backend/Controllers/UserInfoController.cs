@@ -40,15 +40,15 @@ public class UserInfoController : Controller
         return CreatedAtAction(nameof(Get), new { id = userInfo._id }, userInfo);
     }
 
-    // PUT: api/UserInfo/{userEmail}
-    [HttpPut("{userEmail}")]
+    // PUT: api/UserInfo/
+    [HttpPut]
     public async Task<IActionResult> UpdateUserInfoAsync([FromBody] UserInfo userInfo) {
         await _userInfoService.UpdateUserInfoAsync(userInfo);
         return NoContent();
     }
 
-    // DELETE: api/UserInfo/{userEmail}
-    [HttpDelete("{userEmail}")]
+    // DELETE: api/UserInfo/
+    [HttpDelete]
     public async Task<IActionResult> Delete(string userEmail) { 
         await _userInfoService.DeleteUserInfoAsync(userEmail);
         return NoContent();

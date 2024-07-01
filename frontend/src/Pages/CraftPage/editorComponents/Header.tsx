@@ -22,18 +22,32 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import {updateUserInfo, deleteUserInfo} from "../../../api/UserInfoAPI";
+import { UserInfo } from "../../../Models/UserInfo";
 
 import homeTitle from "../../../assets/title.svg"
 import headerLogo from "../../../assets/logo.svg"
 
-export const Header = ({ data }) => {
+export const Header = ({ currentUserData }) => {
   const { actions, query } = useEditor((state) => ({
     enabled: state.options.enabled,
   }));
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
+  const [saveSnackbarOpen, setSaveSnackbarOpen] = useState(false);
   const canvasEditable = useSelector((state: RootState) => state)
   const dispatch = useDispatch();
+
+  async function saveUserWebsite(){
+    debugger
+    const currentUserInfo:UserInfo = {
+      _id: currentUserData._id,
+      userEmail: currentUserData.userEmail,
+      userWebsite: query.serialize()
+    }
+    const response = await updateUserInfo(currentUserInfo);
+    openSaveSnackbar();
+    console.log(response);
+  }
 
   async function saveCanvasToServer() {
     //call the api to save user data into database
@@ -45,14 +59,21 @@ export const Header = ({ data }) => {
         userData: query.serialize(),
       })
       .then(() => {
-        setOpen(true);
+        setSaveSnackbarOpen(true);
       });
     console.log(response);
     console.log(query.serialize());
   }
 
   async function deleteUserWebsite(){
+    const currentUserInfo:UserInfo = {
+      _id: currentUserData._id,
+      userEmail: currentUserData.email,
+      userWebsite: query.serialize()
+    }
+    const response = await deleteUserInfo(currentUserInfo);
     console.log("delete")
+    console.log(response);
   }
 
   function logout() {
@@ -79,9 +100,12 @@ export const Header = ({ data }) => {
     },
     color: "#ff0000"
   })
-  const handleClose = () => {
-    setOpen(false);
+  const closeSaveSnackbar = () => {
+    setSaveSnackbarOpen(false);
   };
+  const openSaveSnackbar = () => {
+    setSaveSnackbarOpen(true);
+  }
 
   return (
     <Box className="header" sx={{ borderBottom: 1, borderColor: "grey.300" }}>
@@ -121,7 +145,7 @@ export const Header = ({ data }) => {
         <TopbarButton
           size="small"
           startIcon={<SaveAltIcon />}
-          onClick={saveCanvasToServer}
+          onClick={saveUserWebsite}
           style={{ position: "absolute", right: "100px" }}
         >
           Save
@@ -136,13 +160,13 @@ export const Header = ({ data }) => {
         </TopbarButton>
       </Grid>
       <Snackbar
-        open={open}
+        open={saveSnackbarOpen}
         autoHideDuration={3000}
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
         style={{top:"24px"}}
-        onClose={handleClose}
+        onClose={closeSaveSnackbar}
       >
-        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+        <Alert onClose={closeSaveSnackbar} severity="success" sx={{ width: "100%" }}>
           <AlertTitle>Saving success</AlertTitle>
           You works have been saved successfully!
         </Alert>

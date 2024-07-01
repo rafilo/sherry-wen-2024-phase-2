@@ -46,7 +46,6 @@ export const Homepage = () => {
   
   function jumpToCraftPage(data) {
     //pass the data to page
-    debugger
     navigate("/craftpage", { state: data });
   }
 
