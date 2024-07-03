@@ -35,17 +35,17 @@ basic features:
     - [x] React using TypeScript
     - [x] Use MaterialUI as the major styling library
     - [x] react-router for routing
-    - [ ] responsive UI for desktop (NOTE: since Web Crafter is designed for users to design their websites for desktop usage, it is not recommended and not reasonable to make the website responsive for mobile devices, as the screen of the mobile will be too small for users to design their website)  
+    - [x] responsive UI for desktop (NOTE: since Web Crafter is designed for users to design their websites for desktop usage, it is not recommended and not reasonable to make the website responsive for mobile devices, as the screen of the mobile will be too small for users to design their website)  
   - Backend
     - [x] .net as backend
     - [x] EFCore for handling database queries
     - [x] uses NOSQL as the database
-    - [ ] basic CURD for the user's website
+    - [x] basic CURD for the user's website
 
 Advanced features:
   - [x] Redux toolkit for state management
-  - [ ] Containerize the project using Docker
-  - [ ] Unit testing components
+  - [x] Containerize the project using Docker
+  - [x] Unit testing components
   - [ ] E2E testing with cypress
 
 
