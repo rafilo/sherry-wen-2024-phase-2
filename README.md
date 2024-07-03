@@ -92,18 +92,22 @@ Running Locally:
 
   2. run the project:
     - cd to `frontend` folder. Run the command below to start the frontend
-    ```bash
+     
+    ```
+    bash
     npm install 
     npm run dev
     ```
 
     - then cd to `backend` folder, run the command below to start the backend
-    ```bash
+    
+    ```
+    bash
     dotnet build
     dotnet run
     ```
   
-  3. open `localhost:5173` in the browser (preferably google chrome)
+  3. open `localhost:5173` in the browser (preferably Google Chrome)
 
 Running through docker:
 
