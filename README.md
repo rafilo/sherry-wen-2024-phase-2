@@ -92,17 +92,12 @@ Running Locally:
 
   2. run the project:
     - cd to `frontend` folder. Run the command below to start the frontend
-     
     ```
-    bash
     npm install 
     npm run dev
     ```
-
     - then cd to `backend` folder, run the command below to start the backend
-    
     ```
-    bash
     dotnet build
     dotnet run
     ```
