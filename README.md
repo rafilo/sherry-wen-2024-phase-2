@@ -48,25 +48,66 @@ Advanced features:
   - [x] Unit testing components
   - [ ] E2E testing with cypress
 
+## structure of Project
+Frontend:
+```
+├── Dockerfile                       # for building up docker image of frontent
+├── compose.yaml                     # compose file for starting up a container of frontent
+├── package.json                    # for managing dependencies
+├── vite.config.ts                  # vite configuration file
+├── src/                            # contains source code
+│   ├── main.tsx                    # entry of the frontend website
+│   ├── assets/                     # contains static assets
+│   ├── api/                       # contains HTTP requests for CRUD of user's website
+│   ├── models/                    # contains Typescript models of frontend
+│   ├── store/                      # for redux state management files
+│   └── pages/                      # contains pages
+|       └── CraftPage/             # contain pages for website crafting page
+|       └── Homepage/             # contain pages for homepage of website
+└──
+```
+Backend:
+```
+├── Program.cs                       # Main entry point for the application
+├── appsettings.json                 # Configuration settings for the application
+├── Dockerfile                       # for building up docker image of backend
+├── compose.yaml                     # compose file for starting up a container of backend
+├── Controllers/                     # handle incoming HTTP requests and return responses
+│   └── [Controller files]           # e.g., HomeController.cs, AccountController.cs
+├── Context/                         # Database context files
+│   └── [DB context files]           # e.g., ApplicationDbContext.cs
+├── Models/                          # Data models
+│   └── [Model files]                # e.g., User.cs, Product.cs
+├── Services/                        # Services for API logic
+│   └── [Service files]              # e.g., UserService.cs, EmailService.cs
+└──
+```
+
 
 ## Running Project
 
-1. Set up the .net environment, and make sure MongoDB is installed on the computer.
+Running Locally:
 
-2. run the project:
-  - cd to `frontend` folder. Run the command below to start the frontend
-  ```bash
-  npm install 
-  npm run dev
-  ```
+  1. Set up the .net environment, and make sure MongoDB is installed on the computer.
 
-  - then cd to `backend` folder, run the command below to start the backend
-  ```bash
-  dotnet build
-  dotnet run
-  ```
+  2. run the project:
+    - cd to `frontend` folder. Run the command below to start the frontend
+    ```bash
+    npm install 
+    npm run dev
+    ```
 
-3. open `localhost:5173` in the browser (preferably google chrome)
+    - then cd to `backend` folder, run the command below to start the backend
+    ```bash
+    dotnet build
+    dotnet run
+    ```
+  
+  3. open `localhost:5173` in the browser (preferably google chrome)
+
+Running through docker:
+
+Please refer to `README.Docker.md` in both `backend` and `frontend` folder for more details.
 
 ## Tests
 

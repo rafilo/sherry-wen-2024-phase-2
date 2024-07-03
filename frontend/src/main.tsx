@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Homepage } from "./Pages/HomePage/HomePage.js";
+import { Homepage } from "./pages/HomePage/HomePage.js";
 import { Provider } from "react-redux";
 import {store} from "./store/store.js";
 import ErrorPage from "./ErrorPage.js";
-import CraftPageContainer from "./Pages/CraftPage/CraftPageContainer.js";
+import CraftPageContainer from "./pages/CraftPage/CraftPageContainer.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
