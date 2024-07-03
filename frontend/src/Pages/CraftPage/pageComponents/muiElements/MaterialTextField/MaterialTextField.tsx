@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
 import { useNode } from "@craftjs/core";
-
 import {
   Typography,
   FormControl,
@@ -8,16 +6,26 @@ import {
   Select,
   MenuItem,
   TextField,
-  Slider,
   Divider,
   Chip,
-  Switch,
-  Stack,
+  TextFieldVariants,
 } from "@mui/material";
 import { MuiColorInput } from "mui-color-input";
 import componentDefaultStyle from "../../componentDefaultStyle.js";
+import React from "react";
 
-export const MaterialTextField = ({
+interface MaterialTextFieldProps {
+  defaultValue: string;
+  size: "small" | "medium";
+  variant: TextFieldVariants | undefined;
+  padding: number;
+  margin: "dense" | "normal" | "none" | undefined;
+  bgColor: string;
+  label: string;
+  fullWidth: string;
+  color: "error" | "primary" | "secondary" | "info" | "success" | "warning" | "none";
+}
+export const MaterialTextField: React.FC<MaterialTextFieldProps> = ({
   defaultValue,
   size,
   variant,
@@ -42,8 +50,8 @@ export const MaterialTextField = ({
       defaultValue={defaultValue}
       label={label}
       margin={margin}
-      color={color == "none" ? null : color}
-      fullWidth={fullWidth == "enable" ? true : null}
+      color={color == "none" ? undefined : color}
+      fullWidth={fullWidth == "enable" ? true : false}
       style={{
         padding: `${padding}px`,
         background: `${bgColor}`,
@@ -83,7 +91,7 @@ const MaterialTextFieldSettings = () => {
           <Select
             id="size-select"
             value={props.size}
-            onChange={(e) => setProp((props) => (props.size = e.target.value))}
+            onChange={(e) => setProp((props: MaterialTextFieldProps) => (props.size = e.target.value))}
             style={componentDefaultStyle.settingPanelSelect}
           >
             <MenuItem value="small">Small</MenuItem>
@@ -99,7 +107,7 @@ const MaterialTextFieldSettings = () => {
             id="variant-select"
             value={props.variant}
             onChange={(e) =>
-              setProp((props) => (props.variant = e.target.value))
+              setProp((props: MaterialTextFieldProps) => (props.variant = e.target.value))
             }
             style={componentDefaultStyle.settingPanelSelect}
           >
@@ -116,7 +124,7 @@ const MaterialTextFieldSettings = () => {
           <Select
             id="color-select"
             value={color}
-            onChange={(e) => setProp((props) => (props.color = e.target.value))}
+            onChange={(e) => setProp((props: MaterialTextFieldProps) => (props.color = e.target.value))}
             style={componentDefaultStyle.settingPanelSelect}
           >
             <MenuItem value="none">None</MenuItem>
@@ -134,7 +142,7 @@ const MaterialTextFieldSettings = () => {
             id="color-select"
             value={margin}
             onChange={(e) =>
-              setProp((props) => (props.margin = e.target.value))
+              setProp((props: MaterialTextFieldProps) => (props.margin = e.target.value))
             }
             style={componentDefaultStyle.settingPanelSelect}
           >
@@ -151,7 +159,7 @@ const MaterialTextFieldSettings = () => {
             id="color-select"
             value={fullWidth}
             onChange={(e) =>
-              setProp((props) => (props.fullWidth = e.target.value))
+              setProp((props: MaterialTextFieldProps) => (props.fullWidth = e.target.value))
             }
             style={componentDefaultStyle.settingPanelSelect}
           >
@@ -168,7 +176,7 @@ const MaterialTextFieldSettings = () => {
             variant="outlined"
             value={props.label}
             onChange={(e) => {
-              setProp((props) => (props.label = e.target.value));
+              setProp((props: MaterialTextFieldProps) => (props.label = e.target.value));
             }}
             style={componentDefaultStyle.settingPanelTextArea}
           ></TextField>

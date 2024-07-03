@@ -6,12 +6,12 @@ import { MaterialTextField } from "./muiElements/MaterialTextField/MaterialTextF
 import { MaterialSwitch } from "./muiElements/MaterialSwitch/MaterialSwitch.tsx";
 import { MaterialChip } from "./muiElements/MaterialChip/MaterialChip.tsx";
 import { MaterialSelect } from "./muiElements/MaterialSelect/MaterialSelect.tsx";
-import {MaterialRating } from "./muiElements/MaterialRating/MaterialRating.tsx";
+import { MaterialRating } from "./muiElements/MaterialRating/MaterialRating.tsx";
 
-import { Card, CardTop, CardBottom } from "./userModified/Card/Card.tsx";
-import { Text } from "./userModified/Text/Text.tsx";
+import { Card, CardTop, CardBottom } from "./CustomizedComponent/Card/Card.tsx";
+import { Text } from "./CustomizedComponent/Text/Text.tsx";
 
-export {
+export{
   MaterialButton,
   Container,
   Card,
@@ -22,5 +22,5 @@ export {
   MaterialChip,
   MaterialSwitch,
   MaterialSelect,
-  MaterialRating
+  MaterialRating,
 };

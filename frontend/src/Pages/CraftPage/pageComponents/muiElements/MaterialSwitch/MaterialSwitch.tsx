@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNode } from "@craftjs/core";
 import { useSelector } from "react-redux";
 import {
@@ -18,7 +18,15 @@ import {
 import componentDefaultStyle from "../../componentDefaultStyle.js";
 import {RootState} from "../../../../../store/store";
 
-export const MaterialSwitch = ({
+interface MaterialSwitchProps {
+  label: string;
+  color: "primary" | "secondary" | "error" | "info" | "success" | "warning" | "default";
+  labelPlacement: "end" | "start" | "top" | "bottom" | undefined;     
+  size: "small" | "medium";
+  padding: number | number[];
+  margin: number | number[];
+} 
+export const MaterialSwitch: React.FC<MaterialSwitchProps> = ({
   label,
   color,
   labelPlacement,
@@ -94,7 +102,7 @@ const MaterialSwitchSettings = () => {
           <Select
             id="size-select"
             value={props.size}
-            onChange={(e) => setProp((props) => (props.size = e.target.value))}
+            onChange={(e) => setProp((props: MaterialSwitchProps) => (props.size = e.target.value))}
             style={componentDefaultStyle.settingPanelSelect}
           >
             <MenuItem value="small">Small</MenuItem>
@@ -110,7 +118,7 @@ const MaterialSwitchSettings = () => {
           <Select
             id="color-select"
             value={props.color}
-            onChange={(e) => setProp((props) => (props.color = e.target.value))}
+            onChange={(e) => setProp((props: MaterialSwitchProps) => (props.color = e.target.value))}
             style={componentDefaultStyle.settingPanelSelect}
           >
             <MenuItem value="default">Grey</MenuItem>
@@ -128,7 +136,7 @@ const MaterialSwitchSettings = () => {
             id="label-input"
             value={props.label}
             onChange={(e) => {
-              setProp((props) => (props.label = e.target.value));
+              setProp((props: MaterialSwitchProps) => (props.label = e.target.value));
             }}
             style={componentDefaultStyle.settingPanelTextArea}
           ></TextField>
@@ -142,7 +150,7 @@ const MaterialSwitchSettings = () => {
             id="lp-select"
             value={props.labelPlacement}
             onChange={(e) =>
-              setProp((props) => (props.labelPlacement = e.target.value))
+              setProp((props: MaterialSwitchProps) => (props.labelPlacement = e.target.value))
             }
             style={componentDefaultStyle.settingPanelSelect}
           >
@@ -168,7 +176,7 @@ const MaterialSwitchSettings = () => {
             max={20}
             valueLabelDisplay="auto"
             onChange={(_, value) => {
-              setProp((props) => (props.padding = value));
+              setProp((props: MaterialSwitchProps) => (props.padding = value));
             }}
           />
         </FormControl>
@@ -184,7 +192,7 @@ const MaterialSwitchSettings = () => {
             max={20}
             valueLabelDisplay="auto"
             onChange={(_, value) => {
-              setProp((props) => (props.margin = value));
+              setProp((props: MaterialSwitchProps) => (props.margin = value));
             }}
           />
         </FormControl>

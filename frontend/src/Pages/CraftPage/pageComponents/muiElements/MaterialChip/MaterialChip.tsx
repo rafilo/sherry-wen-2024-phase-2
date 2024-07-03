@@ -11,13 +11,21 @@ import {
   Chip,
   TextField,
   Divider,
-  Slider
+  Slider,
 } from "@mui/material";
 
 import componentDefaultStyle from "../../componentDefaultStyle.js";
-import {RootState} from "../../../../../store/store";
+import { RootState } from "../../../../../store/store";
 
-export const MaterialChip = ({
+interface MaterialChipProps {
+  size: string;
+  variant: string;
+  color: string;
+  label: string;
+  padding: number;
+  margin: number;
+}
+export const MaterialChip: React.FC<MaterialChipProps> = ({
   size,
   variant,
   color,
@@ -34,7 +42,7 @@ export const MaterialChip = ({
   }));
 
   const [hover, setHover] = useState(false);
-  const canvasEditable = useSelector((state: RootState) => state)
+  const canvasEditable = useSelector((state: RootState) => state);
 
   return (
     <Chip
@@ -85,7 +93,11 @@ const MaterialChipSettings = () => {
           <Select
             id="size-select"
             value={props.size}
-            onChange={(e) => setProp((props) => (props.size = e.target.value))}
+            onChange={(e) =>
+              setProp(
+                (props: MaterialChipProps) => (props.size = e.target.value)
+              )
+            }
             style={componentDefaultStyle.settingPanelSelect}
           >
             <MenuItem value="small">Small</MenuItem>
@@ -100,7 +112,9 @@ const MaterialChipSettings = () => {
             id="variant-select"
             value={props.variant}
             onChange={(e) =>
-              setProp((props) => (props.variant = e.target.value))
+              setProp(
+                (props: MaterialChipProps) => (props.variant = e.target.value)
+              )
             }
             style={componentDefaultStyle.settingPanelSelect}
           >
@@ -115,7 +129,11 @@ const MaterialChipSettings = () => {
           <Select
             id="color-select"
             value={props.color}
-            onChange={(e) => setProp((props) => (props.color = e.target.value))}
+            onChange={(e) =>
+              setProp(
+                (props: MaterialChipProps) => (props.color = e.target.value)
+              )
+            }
             style={componentDefaultStyle.settingPanelSelect}
           >
             <MenuItem value="primary">Primary</MenuItem>
@@ -135,7 +153,9 @@ const MaterialChipSettings = () => {
             value={props.label}
             variant="outlined"
             onChange={(e) => {
-              setProp((props) => (props.label = e.target.value));
+              setProp(
+                (props: MaterialChipProps) => (props.label = e.target.value)
+              );
             }}
             style={componentDefaultStyle.settingPanelTextArea}
           ></TextField>
@@ -156,7 +176,7 @@ const MaterialChipSettings = () => {
             max={20}
             valueLabelDisplay="auto"
             onChange={(_, value) => {
-              setProp((props) => (props.padding = value));
+              setProp((props: MaterialChipProps) => (props.padding = value));
             }}
           />
         </FormControl>
@@ -172,7 +192,7 @@ const MaterialChipSettings = () => {
             max={20}
             valueLabelDisplay="auto"
             onChange={(_, value) => {
-              setProp((props) => (props.margin = value));
+              setProp((props: MaterialChipProps) => (props.margin = value));
             }}
           />
         </FormControl>

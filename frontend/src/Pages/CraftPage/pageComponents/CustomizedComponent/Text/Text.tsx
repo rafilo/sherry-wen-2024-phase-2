@@ -15,9 +15,19 @@ import {
 } from "@mui/material";
 import { MuiColorInput } from "mui-color-input";
 import componentDefaultStyle from "../../componentDefaultStyle.js";
-import {RootState} from "../../../../../store/store";
+import { RootState } from "../../../../../store/store";
 
-export const Text = ({
+interface TextProps {
+  text?: string;
+  fontSize: number | number[];
+  padding?: number | number[];
+  color?: string;
+  bgColor?: string;
+  margin?: number | number[];
+  align?: string;
+  craft?: JSON;
+}
+export const Text: React.FC<TextProps> = ({
   text,
   fontSize,
   padding,
@@ -36,7 +46,7 @@ export const Text = ({
 
   const [editable, setEditable] = useState(false);
   const [hover, setHover] = useState(false);
-  const canvasEditable = useSelector((state: RootState) => state)
+  const canvasEditable = useSelector((state: RootState) => state);
 
   useEffect(() => {
     !isActive && setEditable(false);
@@ -58,7 +68,7 @@ export const Text = ({
         html={text}
         onChange={(e) =>
           setProp(
-            (props) =>
+            (props: TextProps) =>
               (props.text = e.target.value.replace(/<\/?[^>]+(>|$)/g, ""))
           )
         }
@@ -114,7 +124,7 @@ const TextSettings = () => {
             max={50}
             valueLabelDisplay="auto"
             onChange={(_, value) => {
-              setProp((props) => (props.fontSize = value));
+              setProp((props: TextProps) => (props.fontSize = value));
             }}
           />
         </FormControl>
@@ -129,7 +139,7 @@ const TextSettings = () => {
             max={20}
             valueLabelDisplay="auto"
             onChange={(_, value) => {
-              setProp((props) => (props.padding = value));
+              setProp((props: TextProps) => (props.padding = value));
             }}
           />
         </FormControl>
@@ -144,7 +154,7 @@ const TextSettings = () => {
             max={20}
             valueLabelDisplay="auto"
             onChange={(_, value) => {
-              setProp((props) => (props.margin = value));
+              setProp((props: TextProps) => (props.margin = value));
             }}
           />
         </FormControl>
@@ -154,8 +164,8 @@ const TextSettings = () => {
           <FormLabel component="legend">Text Color</FormLabel>
           <MuiColorInput
             value={color || "#000"}
-            onChange={(color) => {
-              setProp((props) => (props.color = color));
+            onChange={(color: string) => {
+              setProp((props: TextProps) => (props.color = color));
             }}
           />
         </FormControl>
@@ -165,8 +175,8 @@ const TextSettings = () => {
           <FormLabel component="legend">Background Color</FormLabel>
           <MuiColorInput
             value={bgColor || "#fff"}
-            onChange={(color) => {
-              setProp((props) => (props.bgColor = color));
+            onChange={(color: string) => {
+              setProp((props: TextProps) => (props.bgColor = color));
             }}
           />
         </FormControl>
@@ -177,7 +187,9 @@ const TextSettings = () => {
           <Select
             id="align-select"
             value={props.align}
-            onChange={(e) => setProp((props) => (props.align = e.target.value))}
+            onChange={(e) =>
+              setProp((props: TextProps) => (props.align = e.target.value))
+            }
             style={componentDefaultStyle.settingPanelSelect}
           >
             <MenuItem value="center">Center</MenuItem>

@@ -1,10 +1,12 @@
-import React from "react";
 import { Text } from "../Text/Text";
 import { Element, useNode } from "@craftjs/core";
-
 import { Container, ContainerSettings } from "../../muiElements/Container/Container";
+import { ReactNode } from "react";
 
-export const CardTop = ({ children }) => {
+interface CardTopProps {
+  children: ReactNode;
+}
+export const CardTop: React.FC<CardTopProps> = ({ children }) => {
   const {
     connectors: { connect },
   } = useNode();
@@ -24,7 +26,10 @@ CardTop.craft = {
   */
 };
 
-export const CardBottom = ({ children }) => {
+interface CardBottomProps {
+  children: ReactNode;
+}
+export const CardBottom: React.FC<CardBottomProps> = ({ children }) => {
   const {
     connectors: { connect },
   } = useNode();
@@ -40,8 +45,11 @@ CardBottom.craft = {
   },
   */
 };
-
-export const Card = ({ background, padding = 20 }) => {
+interface CardProps {
+  background: string;
+  padding: number; 
+}
+export const Card: React.FC<CardProps> = ({ background, padding = 20 }) => {
   return (
     <Container background={background} padding={padding}>
       <Element is={CardTop} id="text" canvas>

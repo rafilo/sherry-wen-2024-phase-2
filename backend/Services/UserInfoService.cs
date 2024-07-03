@@ -51,9 +51,9 @@ public class UserInfoService : IUserInfoService
         targetUser.userWebsite = userInfo.userWebsite;
         await _userInfoCollection.SaveChangesAsync();
     }
-    public async Task DeleteUserInfoAsync(string userEmail)
+    public async Task DeleteUserInfoAsync(UserInfo userInfo)
     {
-        var user = await _userInfoCollection.UserInfo.SingleOrDefaultAsync(user => user.userEmail == userEmail);
+        var user = await _userInfoCollection.UserInfo.SingleOrDefaultAsync(user => user.userEmail == userInfo.userEmail);
         if (user != null)
         {
             _userInfoCollection.UserInfo.Remove(user);

@@ -18,7 +18,16 @@ import {
 import componentDefaultStyle from "../../componentDefaultStyle.js";
 import {RootState} from "../../../../../store/store";
 
-export const MaterialButton = ({
+interface MaterialButtonProps {
+  size: "small" | "medium" | "large";
+  variant: "text" | "outlined" | "contained";
+  color: "primary" | "secondary" | "success" | "error";
+  text: string;
+  currentFunction: string;
+  padding: number;
+  margin: number;
+}
+export const MaterialButton: React.FC<MaterialButtonProps> = ({
   size,
   variant,
   color,
@@ -51,7 +60,7 @@ export const MaterialButton = ({
       variant={variant}
       color={color}
       onClick={function () {
-        let func = new Function(currentFunction);
+        const func = new Function(currentFunction);
         return func();
       }}
       style={{
@@ -135,7 +144,7 @@ const MaterialbuttonSetting = () => {
                 id="size-select"
                 value={props.size}
                 onChange={(e) =>
-                  setProp((props) => (props.size = e.target.value))
+                  setProp((props: MaterialButtonProps) => (props.size = e.target.value))
                 }
                 style={componentDefaultStyle.settingPanelSelect}
               >
@@ -152,7 +161,7 @@ const MaterialbuttonSetting = () => {
                 id="variant-select"
                 value={props.variant}
                 onChange={(e) =>
-                  setProp((props) => (props.variant = e.target.value))
+                  setProp((props: MaterialButtonProps) => (props.variant = e.target.value))
                 }
                 style={componentDefaultStyle.settingPanelSelect}
               >
@@ -169,7 +178,7 @@ const MaterialbuttonSetting = () => {
                 id="color-select"
                 value={props.color}
                 onChange={(e) =>
-                  setProp((props) => (props.color = e.target.value))
+                  setProp((props: MaterialButtonProps) => (props.color = e.target.value))
                 }
                 style={componentDefaultStyle.settingPanelSelect}
               >
@@ -205,7 +214,7 @@ const MaterialbuttonSetting = () => {
                 max={20}
                 valueLabelDisplay="auto"
                 onChange={(_, value) => {
-                  setProp((props) => (props.padding = value));
+                  setProp((props: MaterialButtonProps) => (props.padding = value));
                 }}
               />
             </FormControl>
@@ -221,7 +230,7 @@ const MaterialbuttonSetting = () => {
                 max={20}
                 valueLabelDisplay="auto"
                 onChange={(_, value) => {
-                  setProp((props) => (props.margin = value));
+                  setProp((props: MaterialButtonProps) => (props.margin = value));
                 }}
               />
             </FormControl>
@@ -234,7 +243,7 @@ const MaterialbuttonSetting = () => {
                 variant="outlined"
                 value={props.text}
                 onChange={(e) => {
-                  setProp((props) => (props.text = e.target.value));
+                  setProp((props: MaterialButtonProps) => (props.text = e.target.value));
                 }}
                 style={componentDefaultStyle.settingPanelTextArea}
               ></TextField>
@@ -252,7 +261,7 @@ const MaterialbuttonSetting = () => {
                 multiline
                 value={props.currentFunction}
                 onChange={(e) => {
-                  setProp((props) => (props.currentFunction = e.target.value));
+                  setProp((props: MaterialButtonProps) => (props.currentFunction = e.target.value));
                 }}
                 style={componentDefaultStyle.settingPanelTextArea}
               ></TextField>

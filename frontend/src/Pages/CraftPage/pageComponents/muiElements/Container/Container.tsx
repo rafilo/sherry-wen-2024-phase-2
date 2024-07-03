@@ -12,11 +12,19 @@ import {
 } from "@mui/material";
 
 import { MuiColorInput } from "mui-color-input";
-
 import componentDefaultStyle from "../../componentDefaultStyle.js";
 import {RootState} from "../../../../../store/store";
+import { ReactNode } from "react";
 
-export const Container = ({ background, padding = 0, margin = 0, children }) => {
+interface ContainerProps {
+  background: string;
+  padding: number;
+  margin?: number;
+  children: ReactNode;
+  craft?: JSON;
+}
+
+export const Container: React.FC<ContainerProps> = ({ background, padding = 0, margin = 0, children }) => {
   const {
     connectors: { connect, drag },
     isActive,
@@ -60,8 +68,8 @@ export const ContainerSettings = () => {
           <FormLabel component="legend">Background</FormLabel>
           <MuiColorInput
             value={background || "#000"}
-            onChange={(color) => {
-              setProp((props) => (props.background = color));
+            onChange={(color: string) => {
+              setProp((props: ContainerProps) => (props.background = color));
             }}
           />
         </FormControl>
@@ -75,7 +83,7 @@ export const ContainerSettings = () => {
             step={1}
             min={1}
             max={50}
-            onChange={(_, value) => setProp((props) => (props.padding = value))}
+            onChange={(_, value) => setProp((props: ContainerProps) => (props.padding = value))}
           />
         </FormControl>
       </Typography>
@@ -88,7 +96,7 @@ export const ContainerSettings = () => {
             step={1}
             min={1}
             max={50}
-            onChange={(_, value) => setProp((props) => (props.margin = value))}
+            onChange={(_, value) => setProp((props: ContainerProps) => (props.margin = value))}
           />
         </FormControl>
       </Typography>

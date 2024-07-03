@@ -49,8 +49,8 @@ public class UserInfoController : Controller
 
     // DELETE: api/UserInfo/
     [HttpDelete]
-    public async Task<IActionResult> Delete(string userEmail) { 
-        await _userInfoService.DeleteUserInfoAsync(userEmail);
+    public async Task<IActionResult> Delete([FromBody] UserInfo userInfo) { 
+        await _userInfoService.DeleteUserInfoAsync(userInfo);
         return NoContent();
     }
 }

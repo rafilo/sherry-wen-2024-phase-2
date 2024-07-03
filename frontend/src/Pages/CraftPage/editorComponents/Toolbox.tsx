@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Typography,
@@ -38,9 +37,11 @@ import {
 
 export const Toolbox = () => {
   const { connectors, query } = useEditor();
+  /*
   const genDraggableIconFromRef = function (ref) {
     return ref;
   };
+  */
 
   const toolboxStyle = {
     header: {

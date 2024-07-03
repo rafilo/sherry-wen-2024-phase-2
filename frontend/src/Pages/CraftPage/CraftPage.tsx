@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Toolbox } from "./editorComponents/Toolbox";
 import { SettingsPanel } from "./editorComponents/SettingsPanel";
-import { Header } from "./editorComponents/Header";
+import { CraftPageHeader } from "./editorComponents/CraftPageHeader";
 import SettingsIcon from "@mui/icons-material/Settings";
 
 import {
@@ -47,7 +47,7 @@ export default function CraftPage() {
 
   //get saved website data from user
   const { state } = useLocation();
-  const userSavedData:websiteData = state.userWebsite;
+  const userSavedData: websiteData = state.userWebsite;
 
   const canvasEditable = useSelector((state: RootState) => state);
   const [isLoading, setIsLoading] = useState(true);
@@ -70,7 +70,11 @@ export default function CraftPage() {
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
         onClose={closeLoadingSnackbar}
       >
-        <Alert onClose={closeLoadingSnackbar} severity="success" sx={{ width: "100%" }}>
+        <Alert
+          onClose={closeLoadingSnackbar}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
           <AlertTitle>Success</AlertTitle>
           Loading data successfully!
         </Alert>
@@ -91,7 +95,11 @@ export default function CraftPage() {
         }}
         style={{ height: "100%" }}
       >
-        <Header currentUserData={state} />
+        <CraftPageHeader
+          _id={state._id}
+          userEmail={state.userEmail}
+          userWebsite={state.userWebsite}
+        />
         <Grid container spacing={0} style={craftPageStyles.gridContainer}>
           <Grid
             item

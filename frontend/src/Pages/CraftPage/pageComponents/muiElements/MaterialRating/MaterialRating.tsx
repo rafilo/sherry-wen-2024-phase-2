@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNode } from "@craftjs/core";
 import {
-  Button,
-  ButtonGroup,
   FormControl,
   FormLabel,
-  TextField,
   Select,
   MenuItem,
   Typography,
@@ -17,15 +14,23 @@ import {
 } from "@mui/material";
 
 import componentDefaultStyle from "../../componentDefaultStyle.js";
-import {RootState} from "../../../../../store/store";
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
-import StarIcon from '@mui/icons-material/Star';
-import StarOutlineIcon from '@mui/icons-material/StarOutline';
+import { RootState } from "../../../../../store/store";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
+import StarIcon from "@mui/icons-material/Star";
+import StarOutlineIcon from "@mui/icons-material/StarOutline";
 
-export const MaterialRating = ({
+interface MaterialRatingProps {
+  size: "small" | "medium" | "large";
+  color: string;
+  padding: string;
+  margin: string;
+  precision: string;
+  icon: string;
+}
+export const MaterialRating: React.FC<MaterialRatingProps> = ({
   size,
   color,
   padding,
@@ -42,18 +47,34 @@ export const MaterialRating = ({
   }));
 
   const [hover, setHover] = useState(false);
-  const canvasEditable = useSelector((state: RootState) => state)
+  const canvasEditable = useSelector((state: RootState) => state);
 
   return (
     <Rating
-    sx={{
-      "& .MuiRating-iconFilled": {
-        color: {color}
-      },
-    }}
+      sx={{
+        "& .MuiRating-iconFilled": {
+          color: { color },
+        },
+      }}
       precision={precision == "enable" ? 0.5 : 1}
-      icon={icon == "heart" ? <FavoriteIcon fontSize="inherit"/> : icon=="like" ? <ThumbUpIcon fontSize="inherit"/> : <StarIcon fontSize="inherit"/>  }
-      emptyIcon={icon == "heart" ? <FavoriteBorderIcon fontSize="inherit"/> : icon=="like" ? <ThumbUpOffAltIcon fontSize="inherit"/> : <StarOutlineIcon fontSize="inherit"/>}
+      icon={
+        icon == "heart" ? (
+          <FavoriteIcon fontSize="inherit" />
+        ) : icon == "like" ? (
+          <ThumbUpIcon fontSize="inherit" />
+        ) : (
+          <StarIcon fontSize="inherit" />
+        )
+      }
+      emptyIcon={
+        icon == "heart" ? (
+          <FavoriteBorderIcon fontSize="inherit" />
+        ) : icon == "like" ? (
+          <ThumbUpOffAltIcon fontSize="inherit" />
+        ) : (
+          <StarOutlineIcon fontSize="inherit" />
+        )
+      }
       onMouseEnter={() => {
         setHover(true);
       }}
@@ -73,8 +94,6 @@ export const MaterialRating = ({
           : null),
       }}
     />
-    
-   
   );
 };
 
@@ -97,21 +116,13 @@ const MaterialRatingSetting = () => {
     padding: node.data.props.padding,
     margin: node.data.props.margin,
     precision: node.data.props.precision,
-    icon: node.data.props.icon
+    icon: node.data.props.icon,
   }));
 
   return (
     <div>
-      <Divider
-        textAlign="left"
-        color="#e0e0e0"
-      >
-      <Chip
-        size="small"
-        variant="outlined"
-        color="primary"
-        label="props"
-      />
+      <Divider textAlign="left" color="#e0e0e0">
+        <Chip size="small" variant="outlined" color="primary" label="props" />
       </Divider>
       <Typography component="div" variant="body1" mt={1}>
         <FormControl size="small" component="fieldset" fullWidth>
@@ -120,7 +131,9 @@ const MaterialRatingSetting = () => {
             id="size-select"
             value={props.size}
             onChange={(e) =>
-              setProp((props) => (props.size = e.target.value))
+              setProp(
+                (props: MaterialRatingProps) => (props.size = e.target.value)
+              )
             }
             style={componentDefaultStyle.settingPanelSelect}
           >
@@ -137,7 +150,10 @@ const MaterialRatingSetting = () => {
             id="precision-select"
             value={props.precision}
             onChange={(e) =>
-              setProp((props) => (props.precision = e.target.value))
+              setProp(
+                (props: MaterialRatingProps) =>
+                  (props.precision = e.target.value)
+              )
             }
             style={componentDefaultStyle.settingPanelSelect}
           >
@@ -153,7 +169,9 @@ const MaterialRatingSetting = () => {
             id="icon-select"
             value={props.icon}
             onChange={(e) =>
-              setProp((props) => (props.icon = e.target.value))
+              setProp(
+                (props: MaterialRatingProps) => (props.icon = e.target.value)
+              )
             }
             style={componentDefaultStyle.settingPanelSelect}
           >
@@ -170,7 +188,9 @@ const MaterialRatingSetting = () => {
             id="color-select"
             value={props.color}
             onChange={(e) =>
-              setProp((props) => (props.color = e.target.value))
+              setProp(
+                (props: MaterialRatingProps) => (props.color = e.target.value)
+              )
             }
             style={componentDefaultStyle.settingPanelSelect}
           >
@@ -183,17 +203,8 @@ const MaterialRatingSetting = () => {
         </FormControl>
       </Typography>
 
-      <Divider
-        textAlign="left"
-        style={{ paddingTop: "20px" }}
-        color="#e0e0e0"
-      >
-        <Chip
-          size="small"
-          variant="outlined"
-          color="primary"
-          label="styles"
-        />
+      <Divider textAlign="left" style={{ paddingTop: "20px" }} color="#e0e0e0">
+        <Chip size="small" variant="outlined" color="primary" label="styles" />
       </Divider>
 
       <Typography component="div" variant="body1" mt={1}>
@@ -207,7 +218,7 @@ const MaterialRatingSetting = () => {
             max={20}
             valueLabelDisplay="auto"
             onChange={(_, value) => {
-              setProp((props) => (props.padding = value));
+              setProp((props: MaterialRatingProps) => (props.padding = value));
             }}
           />
         </FormControl>
@@ -223,7 +234,7 @@ const MaterialRatingSetting = () => {
             max={20}
             valueLabelDisplay="auto"
             onChange={(_, value) => {
-              setProp((props) => (props.margin = value));
+              setProp((props: MaterialRatingProps) => (props.margin = value));
             }}
           />
         </FormControl>
@@ -235,7 +246,7 @@ const MaterialRatingSetting = () => {
 /* use Component.craft to pass default prop when creating the component
    and the setting which is used to modify the component
  */
-  MaterialRating.craft = {
+MaterialRating.craft = {
   props: {
     size: "small",
     color: "primary",

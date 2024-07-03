@@ -68,36 +68,6 @@ export const Homepage = () => {
     jumpToCraftPage(currentUserInfo);
   }
 
-  // TODO: redirect to the dashboard, then replace the jumpToCraftPage()
-  async function loginProcess(credential) {
-    //test the process icon for waiting api response
-    // await new Promise((r) => setTimeout(r, 5000));
-    const user = jwt<googleUser>(credential);
-    console.log(user.email);
-    // call api to create user when first login
-    const response = await axios
-      .post("http://localhost:3001/createUserInfo", {
-        userEmail: user.email,
-        familyName: user.family_name,
-        givenName: user.given_name,
-      })
-      .then(async (response) => {
-        console.log(response);
-        // call api to get the user data for loading the saves
-        // wait for insert into database then query the user info
-        // await new Promise((r) => setTimeout(r, 500));
-        const response2 = await fetch(
-          `http://localhost:3001/getUserInfo/${user.email}`
-        );
-        const data = await response2.json();
-        console.log("data: ", data);
-        console.log("loginProcess");
-        //close the proccess icon
-        handleClose();
-        jumpToCraftPage(data);
-      });
-  }
-
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {
