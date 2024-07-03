@@ -15,9 +15,8 @@ The main Tech stacks we are using in this project are listed below:
   - material UI: Styling library used for both styling the application and widget in the application
   - Vite: light-weighted frontend react CLI
   - .net: backend framework
-  - MongoDB: database used for saving user's website
+  - MongoDB Cloud: database used for saving user's website
   - JWT: token based authentication
-  - Axios: HTTP client for making API calls
   - Jest: testing framework designed to ensure the correctness of any JavaScript codebase
   - Swagger: Dashboard for managing / testing backend APIs
 
