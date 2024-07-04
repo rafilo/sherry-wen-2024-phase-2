@@ -17,7 +17,7 @@ The main Tech stacks we are using in this project are listed below:
   - .net: backend framework
   - MongoDB Cloud: database used for saving user's website
   - JWT: token based authentication
-  - Jest: testing framework designed to ensure the correctness of any JavaScript codebase
+  - Vitest: testing framework designed to ensure the correctness of any JavaScript codebase for vite
   - Swagger: Dashboard for managing / testing backend APIs
 
 ## Basic & advanced features for this project
@@ -35,7 +35,7 @@ basic features:
     - [x] Use MaterialUI as the major styling library
     - [x] react-router for routing
     - [x] responsive UI for desktop (NOTE: since Web Crafter is designed for users to design their websites for desktop usage, it is not recommended and not reasonable to make the website responsive for mobile devices, as the screen of the mobile will be too small for users to design their website)  
-  - Backend
+  - Backend:
     - [x] .net as backend
     - [x] EFCore for handling database queries
     - [x] uses NOSQL as the database
@@ -112,4 +112,4 @@ Please refer to `README.Docker.md` in both `backend` and `frontend` folder for m
 
 ## Tests
 
-Run `npm test` in the project root to execute the unit tests via [Jest](https://jestjs.io).
+Run `npm run test` in the project root to execute the unit tests via [vitest](https://vitest.dev).
