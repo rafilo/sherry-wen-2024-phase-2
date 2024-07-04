@@ -14,14 +14,12 @@ import {
   Snackbar,
   CircularProgress,
 } from "@mui/material";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../store/store";
+import { useDispatch } from "react-redux";
 import { setCurrentUserInfo } from "../../store/reducer/loggedinUserInfoReducer";
 import { getCurrentUserInfo, createUserInfo} from "../../api/UserInfoAPI";
 import { UserInfo } from "../../Models/UserInfo";
 
 import jwt from "jwt-decode";
-import axios from "axios";
 import FolderOpenIcon from "@mui/icons-material/FolderOpen";
 import CodeIcon from "@mui/icons-material/Code";
 import WebIcon from "@mui/icons-material/Web";
