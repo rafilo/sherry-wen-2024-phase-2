@@ -7,6 +7,6 @@ import App from "../App";
 describe("homepage test", () => {
   it("check resource route", () => {
     render(<App />);
-    expect(screen.getByText(/Resources/)).toBeDefined()
+    expect(screen.getByText(/Resources/i)).toBeDefined()
   });
 });

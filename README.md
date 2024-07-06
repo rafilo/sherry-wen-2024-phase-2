@@ -45,7 +45,7 @@ Advanced features:
   - [x] Redux toolkit for state management
   - [x] Containerize the project using Docker
   - [x] Unit testing components
-  - [ ] E2E testing with cypress
+  - [x] E2E testing with cypress
 
 ## structure of Project
 Frontend:
