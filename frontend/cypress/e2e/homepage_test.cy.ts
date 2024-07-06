@@ -4,6 +4,6 @@ beforeEach(() => {
 
 describe('homepage test', () => {
   it('check google login icon', () => {
-    cy.get('.google-login').should('be.visible')
+    cy.getTestDom('google-login').should('be.visible')
   })
 })

@@ -35,3 +35,6 @@
 //     }
 //   }
 // }
+Cypress.Commands.add('getTestDom', (selector)=>{
+    return cy.get(`[data-cy=${selector}]`)
+})

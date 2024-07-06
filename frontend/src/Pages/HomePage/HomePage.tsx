@@ -133,6 +133,7 @@ export const Homepage = () => {
           <Breadcrumbs aria-label="breadcrumb">
             <Link
               //className={styles.link}
+              data-cy="resource-link"
               underline="hover"
               color="inherit"
               href="https://craft.js.org/"
@@ -143,6 +144,7 @@ export const Homepage = () => {
             </Link>
             <Link
               //className={styles.link}
+              data-cy="contact-link"
               underline="hover"
               color="inherit"
               href="mailto:rikka9816@gmail.com"
@@ -230,6 +232,7 @@ export const Homepage = () => {
             </Typography>
             <div
               className="google-login"
+              data-cy="google-login"
               style={{ position: "relative", top: "-50px", left: "145px" }}
             >
               <GoogleLogin
