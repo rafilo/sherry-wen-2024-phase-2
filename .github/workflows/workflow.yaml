@@ -8,7 +8,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+    defaults:
+      run:
+        working-directory: ./frontend
     permissions:
       # Required to checkout the code
       contents: read
