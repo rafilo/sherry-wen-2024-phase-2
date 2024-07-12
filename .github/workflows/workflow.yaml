@@ -1,4 +1,4 @@
-name: Execute unit test for frontend
+name: Runs frontend tests
 
 on:
   push:
@@ -6,10 +6,20 @@ on:
   pull_request:
     branches: [main]
 
+defaults:
+  run:
+    working-directory: ./frontend
+
 jobs:
-  build:
+  Test:
+    name: Run test codes
     runs-on: ubuntu-latest
     steps:
-      - name: "vitest"
-        working-directory: frontend
-        run: npm run test
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Show coverage
+        run: npm run test:coverage
