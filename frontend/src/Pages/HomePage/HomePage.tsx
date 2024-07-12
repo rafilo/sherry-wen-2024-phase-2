@@ -38,7 +38,7 @@ interface googleUser {
   given_name: string;
 }
 
-export const Homepage = () => {
+export default function Homepage(){
   const navigate = useNavigate();
   const dispatch = useDispatch();
   

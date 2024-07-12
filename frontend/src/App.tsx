@@ -1,5 +1,5 @@
 import React from "react";
-import { Homepage } from "./pages/HomePage/HomePage";
+import Homepage from "./pages/HomePage/HomePage";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import ErrorPage from "./ErrorPage";
