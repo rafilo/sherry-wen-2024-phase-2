@@ -2,8 +2,6 @@ name: 'Test'
 on: 
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
 jobs:
   test:
@@ -11,11 +9,6 @@ jobs:
     defaults:
       run:
         working-directory: ./frontend
-    permissions:
-      # Required to checkout the code
-      contents: read
-      # Required to put a comment into the pull-request
-      pull-requests: write
 
     steps:
     - uses: actions/checkout@v4
@@ -26,9 +19,4 @@ jobs:
     - name: 'Install Deps'
       run: npm install
     - name: 'Test'
-      run: npx vitest --coverage.enabled true
-    - name: 'Report Coverage'
-      # Set if: always() to also generate the report if tests are failing
-      # Only works if you set `reportOnFailure: true` in your vite config as specified above
-      if: always() 
-      uses:  davelosert/vitest-coverage-report-action@v2
+      run: npm run test:run
