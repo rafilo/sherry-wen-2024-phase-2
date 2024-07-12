@@ -1,18 +1,14 @@
-name: Greeting on variable day
+name: Execute unit test for frontend
 
 on:
-  [workflow_dispatch, push]
-
-env:
-  DAY_OF_WEEK: Monday
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  greeting_job:
+  build:
     runs-on: ubuntu-latest
-    env:
-      Greeting: Hello
     steps:
-      - name: "Say Hello Mona it's Monday"
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
-        env:
-          First_Name: Mona
+      - name: "vitest"
+        run: cd fontend && npm run test
