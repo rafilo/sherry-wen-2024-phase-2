@@ -1,6 +1,6 @@
 import { UserInfo } from "../Models/UserInfo";
 
-const apiUrl = "http://localhost:5039/api";
+const apiUrl = "http://127.0.0.1:5039/api";
 
 export const getCurrentUserInfo = async (
   userInfo: Omit<UserInfo, "_id">

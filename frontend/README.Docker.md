@@ -3,7 +3,12 @@
 When you're ready, start your application by running:
 `docker compose up --build`.
 
+Then start up a new container that maps to port 5173:
+`docker run -it --rm --publish 5173:5173 frontend-client`
+
 Your application will be available at http://localhost:5173.
+
+*NOTE: please open the frontend site using google chrome.*
 
 ### Deploying your application to the cloud
 
