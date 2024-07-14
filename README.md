@@ -8,6 +8,12 @@
 ## What is Web Crafter?
 Web Crafter is a low-code desktop website building platform aimed to help people who don't know website programming to build their website by drag and drop.
 
+---
+
+## ✨ One thing that I'm proud of the project
+  - it takes the advantage of using already existing website building library for react `craft.js`!
+
+---
 
 ## Tech stacks
 The main Tech stacks we are using in this project are listed below:
@@ -108,7 +114,8 @@ Backend:
 
 2. Running through docker:
 
-Please refer to `README.Docker.md` in both `backend` and `frontend` folder for more details.
+  1. Please refer to `README.Docker.md` in both `backend` and `frontend` folder for more details to setup the image and the containers.
+  2. after setup, visit `localhost:5173` in the browser (preferably Google Chrome)
 
 ## Tests
 
