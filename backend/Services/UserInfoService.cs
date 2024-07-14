@@ -16,10 +16,6 @@ public class UserInfoService : IUserInfoService
     public UserInfoService(IOptions<MongoDBSettings> mongoDBSettings)
     {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
-        //IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);
-        //UserInfoContext database = UserInfoContext.Create(client.GetDatabase(mongoDBSettings.Value.DatabaseName));
-        //_userInfoCollection = UserInfoContext.GetDB(database, mongoDBSettings.Value.UserInfoCollectionName);
-        //_userInfoCollection = database.GetCollection<UserInfo>(mongoDBSettings.Value.UserInfoCollectionName);
         var dbContextOptions =
             new DbContextOptionsBuilder<UserInfoContext>().UseMongoDB(client, mongoDBSettings.Value.DatabaseName);
         _userInfoCollection = new UserInfoContext(dbContextOptions.Options);

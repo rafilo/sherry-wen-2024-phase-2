@@ -18,6 +18,7 @@ builder.Services.AddCors(options =>
         });
 });
 
+// Using MongoDB as the database for this project
 builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDB"));
 
 builder.Services.AddEndpointsApiExplorer();
@@ -38,6 +39,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseCors("AllowReactApp");
 
+// add swagger for API testing
 app.UseSwagger();
 app.UseSwaggerUI();
 

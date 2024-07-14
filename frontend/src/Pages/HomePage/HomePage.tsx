@@ -42,12 +42,12 @@ export default function Homepage(){
   const navigate = useNavigate();
   const dispatch = useDispatch();
   
-  function jumpToCraftPage(data) {
+  function jumpToCraftPage(data: UserInfo) {
     //pass the data to page
     navigate("/craftpage", { state: data });
   }
 
-  async function loginProcessDotnet(credential){
+  async function loginProcessDotnet(credential: string){
     setOpen(true)
     const currentUser = jwt<googleUser>(credential);
     let currentUserInfo:UserInfo = {
@@ -237,8 +237,6 @@ export default function Homepage(){
             >
               <GoogleLogin
                 onSuccess={(credentialResponse) => {
-                  //handleOpen();
-                  //loginProcess(credentialResponse.credential);
                   loginProcessDotnet(credentialResponse.credential);
                 }}
                 type="icon"
@@ -271,4 +269,4 @@ export default function Homepage(){
       </Grid>
     </div>
   );
-};
+}

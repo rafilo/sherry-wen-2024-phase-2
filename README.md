@@ -67,18 +67,18 @@ Frontend:
 ```
 Backend:
 ```
-├── Program.cs                       # Main entry point for the application
-├── appsettings.json                 # Configuration settings for the application
+├── Program.cs                       # Main entry point for .net backend
+├── appsettings.json                 # Configuration settings for .net backend
 ├── Dockerfile                       # for building up docker image of backend
 ├── compose.yaml                     # compose file for starting up a container of backend
 ├── Controllers/                     # handle incoming HTTP requests and return responses
-│   └── [Controller files]           # e.g., HomeController.cs, AccountController.cs
-├── Context/                         # Database context files
-│   └── [DB context files]           # e.g., ApplicationDbContext.cs
-├── Models/                          # Data models
-│   └── [Model files]                # e.g., User.cs, Product.cs
+│   └── [Controller files]           # e.g., UserInfoController.cs
+├── Models/                          # Data models and Database context files
+│   └── [Model files]                # e.g., UserInfo.cs, UserInfoContext.cs
 ├── Services/                        # Services for API logic
-│   └── [Service files]              # e.g., UserService.cs, EmailService.cs
+│   └── [Service files]              # e.g., UserService.cs
+├── Properties/                      # settings for .net backend
+│   └── launchSettings.json
 └──
 ```
 

@@ -149,6 +149,7 @@ export const CraftPageHeader: React.FC<UserInfo> = ({
           size="small"
           startIcon={<PlayCircleOutlineIcon />}
           onClick={toggleEditable}
+          disabled={true}
           style={{
             position: "absolute",
             right: "180px",
