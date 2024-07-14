@@ -85,7 +85,7 @@ Backend:
 
 ## Running Project
 
-Running Locally:
+1. Running Locally:
 
   1. Set up the .net environment, and make sure MongoDB is installed on the computer.
 
@@ -106,10 +106,12 @@ Running Locally:
   
   4. open `localhost:5173` in the browser (preferably Google Chrome)
 
-Running through docker:
+2. Running through docker:
 
 Please refer to `README.Docker.md` in both `backend` and `frontend` folder for more details.
 
 ## Tests
 
 Run `npm run test` in the project root to execute the unit tests via [vitest](https://vitest.dev).
+
+Run `npx cypress open` to open cypress for E2E test
