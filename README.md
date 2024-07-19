@@ -91,19 +91,19 @@ Backend:
 
 ## Running Project
 
-1. Running Locally:
+- Running Locally:
 
   1. Set up the .net environment, and make sure MongoDB is installed on the computer.
 
   2. run the project:
      
-    cd to `frontend` folder. Run the command below to start the frontend
+    cd to `frontend` folder. open a terminal, run the command below to start the frontend
     ```
     npm install 
     npm run dev
     ```
     
-    then cd to `backend` folder, run the command below to start the backend
+    then cd to `backend` folder, open another terminal, run the command below to start the backend
     
     ```
     dotnet build
@@ -112,7 +112,7 @@ Backend:
   
   4. open `localhost:5173` in the browser (preferably Google Chrome)
 
-2. Running through docker:
+- Running through docker:
 
   1. Please refer to `README.Docker.md` in both `backend` and `frontend` folder for more details to setup the image and the containers.
   2. after setup, visit `localhost:5173` in the browser (preferably Google Chrome)
