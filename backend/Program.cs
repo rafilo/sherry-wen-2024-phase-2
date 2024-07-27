@@ -1,5 +1,7 @@
 using Models;
 using Services;
+using Vite.AspNetCore;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,9 @@ builder.Services.AddCors(options =>
         });
 });
 
+// Add Vite services.
+builder.Services.AddViteServices();
+
 // Using MongoDB as the database for this project
 builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDB"));
 
@@ -29,12 +34,27 @@ builder.Services.AddScoped<IUserInfoService, UserInfoService>();
 
 var app = builder.Build();
 
+if (app.Environment.IsDevelopment())
+{
+    // WebSockets support is required for HMR (hot module reload).
+    // Uncomment the following line if your pipeline doesn't contain it.
+    // app.UseWebSockets();
+    // Enable all required features to use the Vite Development Server.
+    // Pass true if you want to use the integrated middleware.
+    app.UseViteDevelopmentServer(/* false */);
+}
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
+    //app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    //app.UseHsts();
+    var webRootProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "wwwroot"));
+    var distProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "dist"));
+    var compositeProvider = new CompositeFileProvider(webRootProvider, distProvider);
+    app.Environment.WebRootFileProvider = compositeProvider;
+    app.Environment.WebRootPath = distProvider.Root;
 }
 
 app.UseCors("AllowReactApp");

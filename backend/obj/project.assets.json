@@ -3158,6 +3158,30 @@
           }
         }
       },
+      "Vite.AspNetCore/2.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Vite.AspNetCore.Abstractions": "1.4.0"
+        },
+        "compile": {
+          "lib/net6.0/Vite.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Vite.AspNetCore.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Vite.AspNetCore.Abstractions/1.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Vite.AspNetCore.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Vite.AspNetCore.Abstractions.dll": {}
+        }
+      },
       "ZstdSharp.Port/0.7.3": {
         "type": "package",
         "compile": {
@@ -8958,6 +8982,35 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Vite.AspNetCore/2.1.1": {
+      "sha512": "gX1ZidmzlDjsAGLe/3MNkKSUIVVr33kgFt2fgcXDWWxCVVNrprBupy2retBezm7gfjGtSsDhDU9zcBpW7PZSoA==",
+      "type": "package",
+      "path": "vite.aspnetcore/2.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "lib/net6.0/Vite.AspNetCore.dll",
+        "vite.aspnetcore.2.1.1.nupkg.sha512",
+        "vite.aspnetcore.nuspec",
+        "vite.png"
+      ]
+    },
+    "Vite.AspNetCore.Abstractions/1.4.0": {
+      "sha512": "9JgkfkIdZVrewKwrkO+pvIQq6CWNv5wdhPLAdbJ3WqkFVmsqhYihFmvNjb5DInLPg6ag7uU6FHIvYopwl87IkA==",
+      "type": "package",
+      "path": "vite.aspnetcore.abstractions/1.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/Vite.AspNetCore.Abstractions.dll",
+        "vite.aspnetcore.abstractions.1.4.0.nupkg.sha512",
+        "vite.aspnetcore.abstractions.nuspec",
+        "vite.png"
+      ]
+    },
     "ZstdSharp.Port/0.7.3": {
       "sha512": "U9Ix4l4cl58Kzz1rJzj5hoVTjmbx1qGMwzAcbv1j/d3NzrFaESIurQyg+ow4mivCgkE3S413y+U9k4WdnEIkRA==",
       "type": "package",
@@ -8987,7 +9040,8 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.2",
       "MongoDB.Driver >= 2.26.0",
       "MongoDB.EntityFrameworkCore >= 8.0.2",
-      "Swashbuckle.AspNetCore >= 6.4.0"
+      "Swashbuckle.AspNetCore >= 6.4.0",
+      "Vite.AspNetCore >= 2.1.1"
     ]
   },
   "packageFolders": {
@@ -9071,6 +9125,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.4.0, )"
+          },
+          "Vite.AspNetCore": {
+            "target": "Package",
+            "version": "[2.1.1, )"
           }
         },
         "imports": [

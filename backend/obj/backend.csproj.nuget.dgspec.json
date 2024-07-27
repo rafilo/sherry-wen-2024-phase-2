@@ -82,6 +82,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "Vite.AspNetCore": {
+              "target": "Package",
+              "version": "[2.1.1, )"
             }
           },
           "imports": [

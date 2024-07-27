@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DpxMZv7S1AECpWokR9xYbvGce8ndUXJaYd6zgso/z6Pt5nk3/ZzdLrnFqndHmIJXT6F8Cs7q9Bb5i8cccClDWw==",
+  "dgSpecHash": "VCjIZPMFqGbVzD3arY8sl8SuFIe9TP+k5MjWyZpzpgoEDiABXV1b/50o267lHAK81chWBqMTEmkfUSQ2pJHHGg==",
   "success": true,
   "projectFilePath": "/Users/mint/Desktop/sherry-wen-2024-phase-2/backend/backend.csproj",
   "expectedPackageFiles": [
@@ -188,6 +188,8 @@
     "/Users/mint/.nuget/packages/system.threading.tasks.dataflow/7.0.0/system.threading.tasks.dataflow.7.0.0.nupkg.sha512",
     "/Users/mint/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "/Users/mint/.nuget/packages/system.windows.extensions/7.0.0/system.windows.extensions.7.0.0.nupkg.sha512",
+    "/Users/mint/.nuget/packages/vite.aspnetcore/2.1.1/vite.aspnetcore.2.1.1.nupkg.sha512",
+    "/Users/mint/.nuget/packages/vite.aspnetcore.abstractions/1.4.0/vite.aspnetcore.abstractions.1.4.0.nupkg.sha512",
     "/Users/mint/.nuget/packages/zstdsharp.port/0.7.3/zstdsharp.port.0.7.3.nupkg.sha512"
   ],
   "logs": []
