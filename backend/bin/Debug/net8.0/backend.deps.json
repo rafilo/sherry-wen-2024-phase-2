@@ -16,7 +16,8 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.2",
           "MongoDB.Driver": "2.26.0",
           "MongoDB.EntityFrameworkCore": "8.0.2",
-          "Swashbuckle.AspNetCore": "6.4.0"
+          "Swashbuckle.AspNetCore": "6.4.0",
+          "Vite.AspNetCore": "2.1.1"
         },
         "runtime": {
           "backend.dll": {}
@@ -2104,6 +2105,25 @@
           }
         }
       },
+      "Vite.AspNetCore/2.1.1": {
+        "dependencies": {
+          "Vite.AspNetCore.Abstractions": "1.4.0"
+        },
+        "runtime": {
+          "lib/net6.0/Vite.AspNetCore.dll": {
+            "assemblyVersion": "2.1.1.0",
+            "fileVersion": "2.1.1.0"
+          }
+        }
+      },
+      "Vite.AspNetCore.Abstractions/1.4.0": {
+        "runtime": {
+          "lib/net6.0/Vite.AspNetCore.Abstractions.dll": {
+            "assemblyVersion": "1.4.0.0",
+            "fileVersion": "1.4.0.0"
+          }
+        }
+      },
       "ZstdSharp.Port/0.7.3": {
         "runtime": {
           "lib/net7.0/ZstdSharp.dll": {
@@ -3407,6 +3427,20 @@
       "sha512": "sha512-bR4qdCmssMMbo9Fatci49An5B1UaVJZHKNq70PRgzoLYIlitb8Tj7ns/Xt5Pz1CkERiTjcVBDU2y1AVrPBYkaw==",
       "path": "system.windows.extensions/7.0.0",
       "hashPath": "system.windows.extensions.7.0.0.nupkg.sha512"
+    },
+    "Vite.AspNetCore/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gX1ZidmzlDjsAGLe/3MNkKSUIVVr33kgFt2fgcXDWWxCVVNrprBupy2retBezm7gfjGtSsDhDU9zcBpW7PZSoA==",
+      "path": "vite.aspnetcore/2.1.1",
+      "hashPath": "vite.aspnetcore.2.1.1.nupkg.sha512"
+    },
+    "Vite.AspNetCore.Abstractions/1.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9JgkfkIdZVrewKwrkO+pvIQq6CWNv5wdhPLAdbJ3WqkFVmsqhYihFmvNjb5DInLPg6ag7uU6FHIvYopwl87IkA==",
+      "path": "vite.aspnetcore.abstractions/1.4.0",
+      "hashPath": "vite.aspnetcore.abstractions.1.4.0.nupkg.sha512"
     },
     "ZstdSharp.Port/0.7.3": {
       "type": "package",
